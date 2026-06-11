@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="data/menu.js"></script>
   <style>
     /* ══ MENU LAYOUT ══ */
     #menu { padding: 4rem 0 6rem; }
@@ -197,6 +198,12 @@
       flex-shrink: 0;
     }
     .btn-white:hover { background: var(--cr); transform: translateY(-2px); }
+
+    /* ══ MENU LOADING STATE ══ */
+    .menu-loading {
+      padding: 3rem 0; color: var(--cr3);
+      font-size: .9rem; text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -208,9 +215,9 @@
   </a>
 
   <ul class="nav-links" role="list">
-    <li><a href="index.html" data-es="Inicio" data-en="Home">Inicio</a></li>
-    <li><a href="carta.html" class="act" data-es="Carta" data-en="Menu">Carta</a></li>
-    <li><a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a></li>
+    <li><a href="index.html" data-es="Inicio" data-en="Home" data-ca="Inici">Inicio</a></li>
+    <li><a href="carta.html" class="act" data-es="Carta" data-en="Menu" data-ca="Carta">Carta</a></li>
+    <li><a href="contacto.html" data-es="Contacto" data-en="Contact" data-ca="Contacte">Contacto</a></li>
   </ul>
 
   <div class="nav-r">
@@ -221,6 +228,7 @@
     <div class="lt" role="group" aria-label="Idioma">
       <button id="btn-es" class="a" onclick="setLang('es')" aria-pressed="true">ES</button>
       <button id="btn-en" onclick="setLang('en')" aria-pressed="false">EN</button>
+      <button id="btn-ca" onclick="setLang('ca')" aria-pressed="false">CA</button>
     </div>
     <button class="hb" id="hbtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mob">
       <span></span><span></span><span></span>
@@ -229,24 +237,32 @@
 </nav>
 
 <div class="mob" id="mob" role="dialog" aria-modal="true">
-  <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
-  <a href="carta.html" data-es="Carta" data-en="Menu">Carta</a>
-  <a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a>
+  <a href="index.html" data-es="Inicio" data-en="Home" data-ca="Inici">Inicio</a>
+  <a href="carta.html" data-es="Carta" data-en="Menu" data-ca="Carta">Carta</a>
+  <a href="contacto.html" data-es="Contacto" data-en="Contact" data-ca="Contacte">Contacto</a>
   <div class="mob-lt">
     <button id="mob-btn-es" class="a" onclick="setLang('es')">ES</button>
     <button id="mob-btn-en" onclick="setLang('en')">EN</button>
+    <button id="mob-btn-ca" onclick="setLang('ca')">CA</button>
   </div>
 </div>
 
 <!-- ═══════════ PAGE HEADER ═══════════ -->
 <header class="page-hd">
   <div class="page-hd-in">
-    <span class="lbl fi" data-es="Nuestra Carta" data-en="Our Menu">Nuestra Carta</span>
+    <span class="lbl fi"
+          data-es="Nuestra Carta"
+          data-en="Our Menu"
+          data-ca="La nostra Carta">Nuestra Carta</span>
     <div class="page-hd-line"></div>
-    <h1 class="fi d1" data-es="Carta" data-en="Menu">Carta</h1>
+    <h1 class="fi d1"
+        data-es="Carta"
+        data-en="Menu"
+        data-ca="Carta">Carta</h1>
     <p class="fi d2"
        data-es="Calidad, tradición y buen ambiente. En Ca'n Joan utilizamos los mejores ingredientes de primera calidad para elaborar el mejor sabor desde 1989."
-       data-en="Quality, tradition and great atmosphere. At Ca'n Joan we use the finest quality ingredients to craft the best flavour since 1989.">
+       data-en="Quality, tradition and great atmosphere. At Ca'n Joan we use the finest quality ingredients to craft the best flavour since 1989."
+       data-ca="Qualitat, tradició i bon ambient. A Ca'n Joan feim servir els millors ingredients de primera qualitat per elaborar el millor sabor des de 1989.">
       Calidad, tradición y buen ambiente. En Ca'n Joan utilizamos los mejores ingredientes de primera calidad para elaborar el mejor sabor desde 1989.
     </p>
   </div>
@@ -256,298 +272,23 @@
 <main id="menu">
   <div class="menu-wrap">
 
-    <!-- LEFT: Categories -->
-    <div class="menu-main">
-
-      <!-- PIZZAS -->
-      <section class="cat-section fi" aria-label="Pizzas">
-        <div class="cat-head">
-          <div class="cat-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
-          </div>
-          <span class="cat-title" data-es="Pizzas" data-en="Pizzas">Pizzas</span>
-          <span class="cat-sub" data-es="horno de leña" data-en="wood-fired">horno de leña</span>
-        </div>
-        <div class="menu-list">
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Margherita<span class="mi-tag" data-es="Clásica" data-en="Classic">Clásica</span></div>
-              <div class="mi-desc" data-es="Tomate natural, mozzarella fior di latte, albahaca fresca, AOVE" data-en="Natural tomato, fior di latte mozzarella, fresh basil, EVOO">Tomate natural, mozzarella fior di latte, albahaca fresca, AOVE</div>
-            </div>
-            <span class="mi-price">9,50€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">4 Quesos<span class="mi-tag" data-es="Vegetariana" data-en="Vegetarian">Vegetariana</span></div>
-              <div class="mi-desc" data-es="Mozzarella, gorgonzola, parmigiano reggiano, provola affumicata" data-en="Mozzarella, gorgonzola, parmigiano reggiano, smoked provola">Mozzarella, gorgonzola, parmigiano reggiano, provola affumicata</div>
-            </div>
-            <span class="mi-price">11,50€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Can Joan<span class="mi-tag" data-es="Firma" data-en="Signature">Firma</span></div>
-              <div class="mi-desc" data-es="Sobrasada mallorquina, miel de la Serra de Tramuntana, queso mahonés, rúcula" data-en="Mallorcan sobrasada, honey from Serra de Tramuntana, Mahón cheese, rocket">Sobrasada mallorquina, miel de la Serra de Tramuntana, queso mahonés, rúcula</div>
-            </div>
-            <span class="mi-price">12,50€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Mallorquina</div>
-              <div class="mi-desc" data-es="Gambas del mediterráneo, alcachofas, tomate seco, aceitunas negras, mozzarella" data-en="Mediterranean prawns, artichokes, sun-dried tomato, black olives, mozzarella">Gambas del mediterráneo, alcachofas, tomate seco, aceitunas negras, mozzarella</div>
-            </div>
-            <span class="mi-price">13,50€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Marinara<span class="mi-tag" data-es="Vegana" data-en="Vegan">Vegana</span></div>
-              <div class="mi-desc" data-es="Tomate natural, ajo, orégano, AOVE. Sin queso, receta napolitana tradicional" data-en="Natural tomato, garlic, oregano, EVOO. No cheese, traditional Neapolitan recipe">Tomate natural, ajo, orégano, AOVE. Sin queso, receta napolitana tradicional</div>
-            </div>
-            <span class="mi-price">9,00€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Bosco</div>
-              <div class="mi-desc" data-es="Crema de setas, boletus, mozzarella, trufa negra, aceite de ajo" data-en="Mushroom cream, porcini, mozzarella, black truffle, garlic oil">Crema de setas, boletus, mozzarella, trufa negra, aceite de ajo</div>
-            </div>
-            <span class="mi-price">13,00€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Diavola</div>
-              <div class="mi-desc" data-es="Tomate natural, mozzarella, salame piccante, pimientos asados, guindilla" data-en="Natural tomato, mozzarella, spicy salami, roasted peppers, chilli">Tomate natural, mozzarella, salame piccante, pimientos asados, guindilla</div>
-            </div>
-            <span class="mi-price">11,00€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Prosciutto e Funghi</div>
-              <div class="mi-desc" data-es="Tomate natural, mozzarella, jamón cocido, champiñones, orégano" data-en="Natural tomato, mozzarella, cooked ham, mushrooms, oregano">Tomate natural, mozzarella, jamón cocido, champiñones, orégano</div>
-            </div>
-            <span class="mi-price">11,50€</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- PASTAS -->
-      <section class="cat-section fi" aria-label="Pastas">
-        <div class="cat-head">
-          <div class="cat-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
-          </div>
-          <span class="cat-title" data-es="Pastas" data-en="Pasta">Pastas</span>
-          <span class="cat-sub" data-es="pasta fresca artesana" data-en="artisan fresh pasta">pasta fresca artesana</span>
-        </div>
-        <div class="menu-list">
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Spaghetti Bolognesa</div>
-              <div class="mi-desc" data-es="Ragú de ternera cocinado lentamente, parmigiano reggiano, albahaca" data-en="Slow-cooked beef ragù, parmigiano reggiano, basil">Ragú de ternera cocinado lentamente, parmigiano reggiano, albahaca</div>
-            </div>
-            <span class="mi-price">9,50€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Spaghetti Carbonara</div>
-              <div class="mi-desc" data-es="Guanciale, huevo, pecorino romano, pimienta negra. Receta original romana" data-en="Guanciale, egg, pecorino romano, black pepper. Original Roman recipe">Guanciale, huevo, pecorino romano, pimienta negra. Receta original romana</div>
-            </div>
-            <span class="mi-price">9,50€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Lasaña Casera</div>
-              <div class="mi-desc" data-es="Pasta fresca, ragú de ternera y cerdo, bechamel artesana, parmigiano" data-en="Fresh pasta, beef and pork ragù, artisan béchamel, parmigiano">Pasta fresca, ragú de ternera y cerdo, bechamel artesana, parmigiano</div>
-            </div>
-            <span class="mi-price">10,50€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Penne all'Arrabbiata<span class="mi-tag" data-es="Vegana" data-en="Vegan">Vegana</span></div>
-              <div class="mi-desc" data-es="Tomate natural, ajo, guindilla, AOVE, perejil fresco" data-en="Natural tomato, garlic, chilli, EVOO, fresh parsley">Tomate natural, ajo, guindilla, AOVE, perejil fresco</div>
-            </div>
-            <span class="mi-price">8,50€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Tagliatelle ai Funghi<span class="mi-tag" data-es="Vegetariana" data-en="Vegetarian">Vegetariana</span></div>
-              <div class="mi-desc" data-es="Mezcla de setas de temporada, crema, parmigiano, trufa" data-en="Seasonal mushroom mix, cream, parmigiano, truffle">Mezcla de setas de temporada, crema, parmigiano, trufa</div>
-            </div>
-            <span class="mi-price">11,00€</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- CARNES -->
-      <section class="cat-section fi" aria-label="Carnes">
-        <div class="cat-head">
-          <div class="cat-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-          </div>
-          <span class="cat-title" data-es="Carnes" data-en="Meat">Carnes</span>
-          <span class="cat-sub" data-es="a la plancha o al horno" data-en="grilled or oven-baked">a la plancha o al horno</span>
-        </div>
-        <div class="menu-list">
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Entrecot de Ternera</div>
-              <div class="mi-desc" data-es="Entrecot de 280g a la plancha, guarnición de patatas y ensalada" data-en="280g grilled entrecôte, potato garnish and salad">Entrecot de 280g a la plancha, guarnición de patatas y ensalada</div>
-            </div>
-            <span class="mi-price">18,00€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Escalope de Pollo</div>
-              <div class="mi-desc" data-es="Pechuga empanada a la milanesa, limón, ensalada mixta y patatas fritas" data-en="Breaded chicken breast alla milanese, lemon, mixed salad and chips">Pechuga empanada a la milanesa, limón, ensalada mixta y patatas fritas</div>
-            </div>
-            <span class="mi-price">8,50€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Pollo a la Plancha</div>
-              <div class="mi-desc" data-es="Pechuga de pollo a la plancha con hierbas mallorquinas, patatas y pimientos" data-en="Grilled chicken breast with Mallorcan herbs, potatoes and peppers">Pechuga de pollo a la plancha con hierbas mallorquinas, patatas y pimientos</div>
-            </div>
-            <span class="mi-price">9,50€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Costillas BBQ</div>
-              <div class="mi-desc" data-es="Costillar de cerdo glaseado con salsa BBQ de la casa, patatas y coleslaw" data-en="Pork ribs glazed with house BBQ sauce, potatoes and coleslaw">Costillar de cerdo glaseado con salsa BBQ de la casa, patatas y coleslaw</div>
-            </div>
-            <span class="mi-price">14,50€</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ENTRANTES -->
-      <section class="cat-section fi" aria-label="Entrantes">
-        <div class="cat-head">
-          <div class="cat-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <span class="cat-title" data-es="Entrantes" data-en="Starters">Entrantes</span>
-          <span class="cat-sub" data-es="para compartir" data-en="to share">para compartir</span>
-        </div>
-        <div class="menu-list">
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Nachos con Queso</div>
-              <div class="mi-desc" data-es="Nachos crujientes, queso fundido, guacamole, pico de gallo y crema agria" data-en="Crispy nachos, melted cheese, guacamole, pico de gallo and sour cream">Nachos crujientes, queso fundido, guacamole, pico de gallo y crema agria</div>
-            </div>
-            <span class="mi-price">7,50€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Ensalada Mixta<span class="mi-tag" data-es="Vegana" data-en="Vegan">Vegana</span></div>
-              <div class="mi-desc" data-es="Lechuga, tomate, pepino, cebolla, aceitunas, zanahoria, vinagreta de la casa" data-en="Lettuce, tomato, cucumber, onion, olives, carrot, house vinaigrette">Lechuga, tomate, pepino, cebolla, aceitunas, zanahoria, vinagreta de la casa</div>
-            </div>
-            <span class="mi-price">5,50€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Pan de Ajo<span class="mi-tag" data-es="Vegetariana" data-en="Vegetarian">Vegetariana</span></div>
-              <div class="mi-desc" data-es="Pan artesano con mantequilla de ajo y hierbas, horneado en nuestro horno de leña" data-en="Artisan bread with garlic butter and herbs, baked in our wood-fired oven">Pan artesano con mantequilla de ajo y hierbas, horneado en nuestro horno de leña</div>
-            </div>
-            <span class="mi-price">4,00€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Burrata &amp; Sobrasada</div>
-              <div class="mi-desc" data-es="Burrata fresca, sobrasada mallorquina templada, miel artesana y tostadas" data-en="Fresh burrata, warm Mallorcan sobrasada, artisan honey and toast">Burrata fresca, sobrasada mallorquina templada, miel artesana y tostadas</div>
-            </div>
-            <span class="mi-price">9,50€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Bruschetta al Horno<span class="mi-tag" data-es="Vegana" data-en="Vegan">Vegana</span></div>
-              <div class="mi-desc" data-es="Pan de masa madre, tomate cherry asado, albahaca fresca, ajo y AOVE" data-en="Sourdough, roasted cherry tomatoes, fresh basil, garlic and EVOO">Pan de masa madre, tomate cherry asado, albahaca fresca, ajo y AOVE</div>
-            </div>
-            <span class="mi-price">6,50€</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- VEGETALES -->
-      <section class="cat-section fi" aria-label="Vegetales">
-        <div class="cat-head">
-          <div class="cat-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 22 C2 22 8 18 12 12 16 6 22 2 22 2 22 2 20 8 16 12 12 16 8 18 2 22Z"/><path d="M12 12 L7 17"/></svg>
-          </div>
-          <span class="cat-title" data-es="Vegetales" data-en="Vegetarian">Vegetales</span>
-          <span class="cat-sub" data-es="opciones veganas disponibles" data-en="vegan options available">opciones veganas disponibles</span>
-        </div>
-        <div class="menu-list">
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Verduras a la Plancha<span class="mi-tag" data-es="Vegana" data-en="Vegan">Vegana</span></div>
-              <div class="mi-desc" data-es="Selección de verduras de temporada a la plancha con romero, tomillo y AOVE" data-en="Selection of seasonal grilled vegetables with rosemary, thyme and EVOO">Selección de verduras de temporada a la plancha con romero, tomillo y AOVE</div>
-            </div>
-            <span class="mi-price">8,00€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Ensalada Caprese<span class="mi-tag" data-es="Vegetariana" data-en="Vegetarian">Vegetariana</span></div>
-              <div class="mi-desc" data-es="Tomate de temporada, mozzarella fresca, albahaca, AOVE y reducción de balsámico" data-en="Seasonal tomato, fresh mozzarella, basil, EVOO and balsamic reduction">Tomate de temporada, mozzarella fresca, albahaca, AOVE y reducción de balsámico</div>
-            </div>
-            <span class="mi-price">7,50€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Pizza Vegana<span class="mi-tag" data-es="Vegana" data-en="Vegan">Vegana</span></div>
-              <div class="mi-desc" data-es="Tomate natural, berenjena, calabacín, pimientos, aceitunas, rúcula, sin lácteos" data-en="Natural tomato, aubergine, courgette, peppers, olives, rocket, dairy-free">Tomate natural, berenjena, calabacín, pimientos, aceitunas, rúcula, sin lácteos</div>
-            </div>
-            <span class="mi-price">10,50€</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- POSTRES -->
-      <section class="cat-section fi" aria-label="Postres">
-        <div class="cat-head">
-          <div class="cat-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </div>
-          <span class="cat-title" data-es="Postres" data-en="Desserts">Postres</span>
-          <span class="cat-sub" data-es="el final perfecto" data-en="the perfect ending">el final perfecto</span>
-        </div>
-        <div class="menu-list">
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Tiramisú Casero</div>
-              <div class="mi-desc" data-es="Receta casera con mascarpone artesano, bizcochos Savoiardi y café italiano" data-en="Home recipe with artisan mascarpone, Savoiardi biscuits and Italian coffee">Receta casera con mascarpone artesano, bizcochos Savoiardi y café italiano</div>
-            </div>
-            <span class="mi-price">5,50€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Panna Cotta de Limón</div>
-              <div class="mi-desc" data-es="Panna cotta con limón de Sóller, coulis de frutos rojos y menta fresca" data-en="Panna cotta with Sóller lemon, red fruit coulis and fresh mint">Panna cotta con limón de Sóller, coulis de frutos rojos y menta fresca</div>
-            </div>
-            <span class="mi-price">5,00€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Tarta de Queso</div>
-              <div class="mi-desc" data-es="Tarta de queso al estilo San Sebastián, cremosa y ligeramente quemada por fuera" data-en="San Sebastián-style cheesecake, creamy and lightly burnt on the outside">Tarta de queso al estilo San Sebastián, cremosa y ligeramente quemada por fuera</div>
-            </div>
-            <span class="mi-price">5,50€</span>
-          </div>
-          <div class="mi">
-            <div class="mi-body">
-              <div class="mi-name">Helado Artesano</div>
-              <div class="mi-desc" data-es="3 bolas de helado artesano de producción local. Consulte sabores disponibles" data-en="3 scoops of artisan ice cream, locally produced. Ask for available flavours">3 bolas de helado artesano de producción local. Consulte sabores disponibles</div>
-            </div>
-            <span class="mi-price">4,50€</span>
-          </div>
-        </div>
-      </section>
-
-    </div><!-- /menu-main -->
+    <!-- LEFT: Categories (rendered dynamically from data/menu.json) -->
+    <div id="menu-main" class="menu-main">
+      <p class="menu-loading"
+         data-es="Cargando carta…"
+         data-en="Loading menu…"
+         data-ca="Carregant la carta…">Cargando carta…</p>
+    </div>
 
     <!-- RIGHT: Sidebar -->
     <aside class="menu-sidebar" aria-label="Información del servicio">
 
       <div class="sidebar-box fi">
         <div class="sb-head">
-          <span class="sb-title" data-es="Servicio" data-en="Service">Servicio</span>
+          <span class="sb-title"
+                data-es="Servicio"
+                data-en="Service"
+                data-ca="Servei">Servicio</span>
         </div>
         <div class="sb-body">
           <div class="sb-item">
@@ -555,10 +296,14 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
             </div>
             <div>
-              <span class="sb-item-title" data-es="Local" data-en="Indoor">Local</span>
+              <span class="sb-item-title"
+                    data-es="Local"
+                    data-en="Indoor"
+                    data-ca="Local">Local</span>
               <p class="sb-item-desc"
                  data-es="Salón interior con capacidad para 60 personas. Ambiente íntimo y acogedor."
-                 data-en="Indoor dining room with capacity for 60 people. Intimate and welcoming atmosphere.">
+                 data-en="Indoor dining room with capacity for 60 people. Intimate and welcoming atmosphere."
+                 data-ca="Saló interior amb capacitat per a 60 persones. Ambient íntim i acollidor.">
                 Salón interior con capacidad para 60 personas. Ambiente íntimo y acogedor.
               </p>
             </div>
@@ -568,10 +313,14 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <div>
-              <span class="sb-item-title" data-es="Terraza" data-en="Terrace">Terraza</span>
+              <span class="sb-item-title"
+                    data-es="Terraza"
+                    data-en="Terrace"
+                    data-ca="Terrassa">Terraza</span>
               <p class="sb-item-desc"
                  data-es="Amplia terraza exterior al aire libre. Ideal para noches de verano en Mallorca."
-                 data-en="Large outdoor terrace. Perfect for summer evenings in Mallorca.">
+                 data-en="Large outdoor terrace. Perfect for summer evenings in Mallorca."
+                 data-ca="Àmplia terrassa exterior a l'aire lliure. Ideal per a les nits d'estiu a Mallorca.">
                 Amplia terraza exterior al aire libre. Ideal para noches de verano en Mallorca.
               </p>
             </div>
@@ -581,10 +330,14 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
             </div>
             <div>
-              <span class="sb-item-title" data-es="Para Llevar" data-en="Takeaway">Para Llevar</span>
+              <span class="sb-item-title"
+                    data-es="Para Llevar"
+                    data-en="Takeaway"
+                    data-ca="Per endur">Para Llevar</span>
               <p class="sb-item-desc"
                  data-es="Llama al 971 52 52 28 y recoge tu pedido en 20-25 min."
-                 data-en="Call 971 52 52 28 and collect your order in 20-25 min.">
+                 data-en="Call 971 52 52 28 and collect your order in 20-25 min."
+                 data-ca="Truca al 971 52 52 28 i recull la teva comanda en 20-25 min.">
                 Llama al 971 52 52 28 y recoge tu pedido en 20-25 min.
               </p>
             </div>
@@ -594,27 +347,52 @@
 
       <div class="sb-cta fi d1">
         <p data-es="¿Quieres reservar mesa? Llámanos o escríbenos y te guardamos el mejor sitio de la terraza."
-           data-en="Want to book a table? Call us or write to us and we'll save you the best spot on the terrace.">
+           data-en="Want to book a table? Call us or write to us and we'll save you the best spot on the terrace."
+           data-ca="Voleu reservar taula? Cridau-nos o escriviu-nos i us guardarem el millor lloc de la terrassa.">
           ¿Quieres reservar mesa? Llámanos o escríbenos y te guardamos el mejor sitio de la terraza.
         </p>
         <a href="tel:971525228" class="btn-primary">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.56 3.41 2 2 0 0 1 3.53 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span data-es="971 52 52 28" data-en="971 52 52 28">971 52 52 28</span>
+          <span data-es="971 52 52 28" data-en="971 52 52 28" data-ca="971 52 52 28">971 52 52 28</span>
         </a>
       </div>
 
       <div class="sidebar-box fi d2">
         <div class="sb-head">
-          <span class="sb-title" data-es="Horario" data-en="Hours">Horario</span>
+          <span class="sb-title"
+                data-es="Horario"
+                data-en="Hours"
+                data-ca="Horari">Horario</span>
         </div>
         <div class="sb-body" style="padding: .75rem 1.5rem 1.25rem;">
-          <div class="fhr hl"><span class="day" data-es="Lunes" data-en="Monday">Lunes</span><span>13–15:30 / 20–23h</span></div>
-          <div class="fhr"><span class="day" data-es="Martes" data-en="Tuesday">Martes</span><span data-es="Cerrado" data-en="Closed">Cerrado</span></div>
-          <div class="fhr hl"><span class="day" data-es="Miércoles" data-en="Wednesday">Miércoles</span><span>13–15:30 / 20–23h</span></div>
-          <div class="fhr"><span class="day" data-es="Jueves" data-en="Thursday">Jueves</span><span data-es="Cerrado" data-en="Closed">Cerrado</span></div>
-          <div class="fhr"><span class="day" data-es="Viernes" data-en="Friday">Viernes</span><span data-es="Cerrado" data-en="Closed">Cerrado</span></div>
-          <div class="fhr"><span class="day" data-es="Sábado" data-en="Saturday">Sábado</span><span data-es="Cerrado" data-en="Closed">Cerrado</span></div>
-          <div class="fhr hl"><span class="day" data-es="Domingo" data-en="Sunday">Domingo</span><span>13–15:30 / 20–23h</span></div>
+          <div class="fhr hl">
+            <span class="day" data-es="Lunes" data-en="Monday" data-ca="Dilluns">Lunes</span>
+            <span>13–15:30 / 20–23h</span>
+          </div>
+          <div class="fhr">
+            <span class="day" data-es="Martes" data-en="Tuesday" data-ca="Dimarts">Martes</span>
+            <span data-es="Cerrado" data-en="Closed" data-ca="Tancat">Cerrado</span>
+          </div>
+          <div class="fhr hl">
+            <span class="day" data-es="Miércoles" data-en="Wednesday" data-ca="Dimecres">Miércoles</span>
+            <span>13–15:30 / 20–23h</span>
+          </div>
+          <div class="fhr">
+            <span class="day" data-es="Jueves" data-en="Thursday" data-ca="Dijous">Jueves</span>
+            <span data-es="Cerrado" data-en="Closed" data-ca="Tancat">Cerrado</span>
+          </div>
+          <div class="fhr">
+            <span class="day" data-es="Viernes" data-en="Friday" data-ca="Divendres">Viernes</span>
+            <span data-es="Cerrado" data-en="Closed" data-ca="Tancat">Cerrado</span>
+          </div>
+          <div class="fhr">
+            <span class="day" data-es="Sábado" data-en="Saturday" data-ca="Dissabte">Sábado</span>
+            <span data-es="Cerrado" data-en="Closed" data-ca="Tancat">Cerrado</span>
+          </div>
+          <div class="fhr hl">
+            <span class="day" data-es="Domingo" data-en="Sunday" data-ca="Diumenge">Domingo</span>
+            <span>13–15:30 / 20–23h</span>
+          </div>
         </div>
       </div>
 
@@ -633,19 +411,26 @@
       <img src="Imagenes_CanJoan/google_place_ChIJ_api56q7lxIRGHcfplzggdo_photo_3.webp" alt="Terraza exterior de Can Joan" loading="lazy">
     </div>
     <div class="fam-text fi d2">
-      <span class="lbl" data-es="Para todos" data-en="For everyone">Para todos</span>
+      <span class="lbl"
+            data-es="Para todos"
+            data-en="For everyone"
+            data-ca="Per a tothom">Para todos</span>
       <h2 class="sec-h2"
           data-es="Ideal para familias<br>y grupos"
-          data-en="Perfect for families<br>and groups">
+          data-en="Perfect for families<br>and groups"
+          data-ca="Ideal per a famílies<br>i grups">
         Ideal para familias<br>y grupos
       </h2>
       <p class="body-txt"
          data-es="Disponemos de amplios espacios tanto en el interior como en nuestra terraza para acoger grupos de todos los tamaños. Menús especiales bajo petición."
-         data-en="We have spacious areas both indoors and on our terrace to accommodate groups of all sizes. Special group menus available on request.">
+         data-en="We have spacious areas both indoors and on our terrace to accommodate groups of all sizes. Special group menus available on request."
+         data-ca="Disposam d'amplis espais tant a l'interior com a la nostra terrassa per acollir grups de totes les mides. Menús especials a petició.">
         Disponemos de amplios espacios tanto en el interior como en nuestra terraza para acoger grupos de todos los tamaños. Menús especiales bajo petición.
       </p>
       <a href="contacto.html" class="btn-primary" style="margin-top:.5rem; align-self: flex-start;"
-         data-es="Consultar disponibilidad" data-en="Check availability">
+         data-es="Consultar disponibilidad"
+         data-en="Check availability"
+         data-ca="Consultar disponibilitat">
         Consultar disponibilidad
       </a>
     </div>
@@ -659,9 +444,12 @@
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
     </div>
     <div class="allergy-body">
-      <h3 data-es="¿Tienes alguna alergia o intolerancia?" data-en="Do you have any allergies or intolerances?">¿Tienes alguna alergia o intolerancia?</h3>
+      <h3 data-es="¿Tienes alguna alergia o intolerancia?"
+          data-en="Do you have any allergies or intolerances?"
+          data-ca="Tens alguna al·lèrgia o intolerància?">¿Tienes alguna alergia o intolerancia?</h3>
       <p data-es="Nuestro equipo está disponible para ayudarte. Consulta con el personal antes de pedir y adaptaremos los platos a tus necesidades siempre que sea posible."
-         data-en="Our team is available to help you. Consult with staff before ordering and we'll adapt dishes to your needs whenever possible.">
+         data-en="Our team is available to help you. Consult with staff before ordering and we'll adapt dishes to your needs whenever possible."
+         data-ca="El nostre equip està disponible per ajudar-te. Consulta el personal abans de demanar i adaptarem els plats a les teves necessitats sempre que sigui possible.">
         Nuestro equipo está disponible para ayudarte. Consulta con el personal antes de pedir y adaptaremos los platos a tus necesidades siempre que sea posible.
       </p>
     </div>
@@ -673,10 +461,14 @@
   <div class="foot-g">
     <div class="fi">
       <span class="foot-logo">Can Joan</span>
-      <span class="foot-sub" data-es="Pizzería Artesanal · Llucmajor" data-en="Artisan Pizzeria · Llucmajor">Pizzería Artesanal · Llucmajor</span>
+      <span class="foot-sub"
+            data-es="Pizzería Artesanal · Llucmajor"
+            data-en="Artisan Pizzeria · Llucmajor"
+            data-ca="Pizzeria Artesanal · Llucmajor">Pizzería Artesanal · Llucmajor</span>
       <p class="foot-p"
          data-es="Más de tres décadas cocinando con fuego, pasión y los mejores ingredientes de la isla."
-         data-en="Over three decades cooking with fire, passion, and the finest ingredients on the island.">
+         data-en="Over three decades cooking with fire, passion, and the finest ingredients on the island."
+         data-ca="Més de tres dècades cuinant amb foc, passió i els millors ingredients de l'illa.">
         Más de tres décadas cocinando con fuego, pasión y los mejores ingredientes de la isla.
       </p>
       <div class="soc">
@@ -685,62 +477,195 @@
       </div>
     </div>
     <div class="fi d1">
-      <span class="fcol-t" data-es="Encuéntranos" data-en="Find Us">Encuéntranos</span>
+      <span class="fcol-t"
+            data-es="Encuéntranos"
+            data-en="Find Us"
+            data-ca="Trobeu-nos">Encuéntranos</span>
       <div class="finfo"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>C/ Granja, 56<br>07620 Llucmajor, Mallorca</span></div>
       <div class="finfo"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.56 3.41 2 2 0 0 1 3.53 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:971525228">971 52 52 28</a></div>
     </div>
     <div class="fi d2">
-      <span class="fcol-t" data-es="Horario" data-en="Hours">Horario</span>
-      <div class="fhr hl"><span class="day" data-es="Lun / Mié / Dom" data-en="Mon / Wed / Sun">Lun / Mié / Dom</span><span>13–23h</span></div>
-      <div class="fhr"><span class="day" data-es="Mar / Jue / Vie / Sáb" data-en="Tue / Thu / Fri / Sat">Mar / Jue / Vie / Sáb</span><span data-es="Cerrado" data-en="Closed">Cerrado</span></div>
+      <span class="fcol-t"
+            data-es="Horario"
+            data-en="Hours"
+            data-ca="Horari">Horario</span>
+      <div class="fhr hl">
+        <span class="day" data-es="Lun / Mié / Dom" data-en="Mon / Wed / Sun" data-ca="Dll / Dim / Diu">Lun / Mié / Dom</span>
+        <span>13–23h</span>
+      </div>
+      <div class="fhr">
+        <span class="day" data-es="Mar / Jue / Vie / Sáb" data-en="Tue / Thu / Fri / Sat" data-ca="Dmt / Dij / Div / Dis">Mar / Jue / Vie / Sáb</span>
+        <span data-es="Cerrado" data-en="Closed" data-ca="Tancat">Cerrado</span>
+      </div>
     </div>
   </div>
   <div class="fbot">
-    <p class="fcopy">&copy; 2026 Can Joan Pizzería. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
-    <p class="fmade"><span data-es="Hecho con " data-en="Made with ">Hecho con </span><span>♥</span><span data-es=" en Mallorca" data-en=" in Mallorca"> en Mallorca</span></p>
+    <p class="fcopy">&copy; 2026 Can Joan Pizzería. <span data-es="Todos los derechos reservados." data-en="All rights reserved." data-ca="Tots els drets reservats.">Todos los derechos reservados.</span></p>
+    <p class="fmade">
+      <span data-es="Hecho con " data-en="Made with " data-ca="Fet amb ">Hecho con </span>
+      <span>♥</span>
+      <span data-es=" en Mallorca" data-en=" in Mallorca" data-ca=" a Mallorca"> en Mallorca</span>
+    </p>
   </div>
 </footer>
 
 <script>
   let lang = localStorage.getItem('cj-lang') || 'es';
+  let menuData = null;
+
+  /* ── SVG icons keyed by name ── */
+  const ICONS = {
+    pizza:  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>',
+    pasta:  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>',
+    meat:   '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>',
+    shield: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+    leaf:   '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 22 C2 22 8 18 12 12 16 6 22 2 22 2 22 2 20 8 16 12 12 16 8 18 2 22Z"/><path d="M12 12 L7 17"/></svg>',
+    heart:  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'
+  };
+
+  function escAttr(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+  }
+  function escText(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function buildMenuHTML(data, l) {
+    return data.categories.map(function(cat) {
+      var items = cat.items.map(function(item) {
+        var tag = item.tag
+          ? '<span class="mi-tag"'
+            + ' data-es="' + escAttr(item.tag.es) + '"'
+            + ' data-en="' + escAttr(item.tag.en) + '"'
+            + ' data-ca="' + escAttr(item.tag.ca) + '">'
+            + escText(item.tag[l] || item.tag.es)
+            + '</span>'
+          : '';
+        var name = typeof item.name === 'object'
+          ? (item.name[l] || item.name.es)
+          : item.name;
+        return '<div class="mi">'
+          + '<div class="mi-body">'
+          + '<div class="mi-name">' + escText(name) + tag + '</div>'
+          + '<div class="mi-desc"'
+          + ' data-es="' + escAttr(item.desc.es) + '"'
+          + ' data-en="' + escAttr(item.desc.en) + '"'
+          + ' data-ca="' + escAttr(item.desc.ca) + '">'
+          + escText(item.desc[l] || item.desc.es)
+          + '</div>'
+          + '</div>'
+          + '<span class="mi-price">' + escText(item.price) + '</span>'
+          + '</div>';
+      }).join('');
+
+      var catLabel = cat.label[l] || cat.label.es;
+      var catSub   = cat.sub[l]   || cat.sub.es;
+      return '<section class="cat-section fi" aria-label="' + escAttr(catLabel) + '">'
+        + '<div class="cat-head">'
+        + '<div class="cat-icon">' + (ICONS[cat.icon] || '') + '</div>'
+        + '<span class="cat-title"'
+        + ' data-es="' + escAttr(cat.label.es) + '"'
+        + ' data-en="' + escAttr(cat.label.en) + '"'
+        + ' data-ca="' + escAttr(cat.label.ca) + '">'
+        + escText(catLabel)
+        + '</span>'
+        + '<span class="cat-sub"'
+        + ' data-es="' + escAttr(cat.sub.es) + '"'
+        + ' data-en="' + escAttr(cat.sub.en) + '"'
+        + ' data-ca="' + escAttr(cat.sub.ca) + '">'
+        + escText(catSub)
+        + '</span>'
+        + '</div>'
+        + '<div class="menu-list">' + items + '</div>'
+        + '</section>';
+    }).join('');
+  }
+
+  function setupFadeIn(root) {
+    var rmo = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (rmo.matches) {
+      root.querySelectorAll('.fi').forEach(function(el) { el.classList.add('on'); });
+      return;
+    }
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
+    root.querySelectorAll('.fi').forEach(function(el) { obs.observe(el); });
+  }
+
   function setLang(l) {
-    lang = l; localStorage.setItem('cj-lang', l);
+    lang = l;
+    localStorage.setItem('cj-lang', l);
     document.documentElement.lang = l;
-    ['btn-es','btn-en','mob-btn-es','mob-btn-en'].forEach(id => {
-      const el = document.getElementById(id); if (!el) return;
-      const isActive = (id.includes('es') && l==='es') || (id.includes('en') && l==='en');
-      el.classList.toggle('a', isActive); el.setAttribute('aria-pressed', isActive);
+
+    ['es','en','ca'].forEach(function(code) {
+      ['btn-'+code, 'mob-btn-'+code].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        var active = (code === l);
+        el.classList.toggle('a', active);
+        el.setAttribute('aria-pressed', String(active));
+      });
     });
-    document.querySelectorAll('[data-es][data-en]').forEach(el => {
-      const v = el.getAttribute('data-'+l);
+
+    document.querySelectorAll('[data-es]').forEach(function(el) {
+      var attr = el.getAttribute('data-' + l);
+      var v = (attr !== null) ? attr : el.getAttribute('data-es');
       if (v !== null && el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA') el.innerHTML = v;
     });
-    document.title = l === 'en' ? 'Menu — Can Joan Artisan Pizzeria · Llucmajor' : 'Carta — Can Joan Pizzería Artesanal · Llucmajor';
+
+    var titles = {
+      es: 'Carta — Can Joan Pizzería Artesanal · Llucmajor',
+      en: 'Menu — Can Joan Artisan Pizzeria · Llucmajor',
+      ca: 'Carta — Can Joan Pizzeria Artesanal · Llucmajor'
+    };
+    document.title = titles[l] || titles.es;
   }
+
   setLang(lang);
 
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('solid', window.scrollY > 50), { passive: true });
+  /* ── Load menu from data/menu.js (loaded via <script> tag in <head>) ── */
+  (function() {
+    var data = window.MENU_DATA;
+    if (!data) return;
+    menuData = data;
+    var container = document.getElementById('menu-main');
+    if (!container) return;
+    container.innerHTML = buildMenuHTML(data, lang);
+    setupFadeIn(container);
+  })();
 
-  const hbtn = document.getElementById('hbtn'); const mob = document.getElementById('mob');
-  hbtn.addEventListener('click', () => {
-    const o = mob.classList.toggle('o'); hbtn.classList.toggle('o', o);
-    hbtn.setAttribute('aria-expanded', o); document.body.style.overflow = o ? 'hidden' : '';
+  /* ── Nav scroll ── */
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function() {
+    nav.classList.toggle('solid', window.scrollY > 50);
+  }, { passive: true });
+
+  /* ── Mobile menu ── */
+  var hbtn = document.getElementById('hbtn');
+  var mob  = document.getElementById('mob');
+  hbtn.addEventListener('click', function() {
+    var o = mob.classList.toggle('o');
+    hbtn.classList.toggle('o', o);
+    hbtn.setAttribute('aria-expanded', o);
+    document.body.style.overflow = o ? 'hidden' : '';
   });
-  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    mob.classList.remove('o'); hbtn.classList.remove('o'); hbtn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
-  }));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { mob.classList.remove('o'); hbtn.classList.remove('o'); hbtn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }});
+  mob.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      mob.classList.remove('o'); hbtn.classList.remove('o');
+      hbtn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+    });
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      mob.classList.remove('o'); hbtn.classList.remove('o');
+      hbtn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+    }
+  });
 
-  const rmo = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (!rmo.matches) {
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }});
-    }, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
-    document.querySelectorAll('.fi').forEach(el => obs.observe(el));
-  } else {
-    document.querySelectorAll('.fi').forEach(el => el.classList.add('on'));
-  }
+  setupFadeIn(document.body);
 </script>
 </body>
 </html>

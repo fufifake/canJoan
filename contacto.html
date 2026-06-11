@@ -172,9 +172,9 @@
   </a>
 
   <ul class="nav-links" role="list">
-    <li><a href="index.html" data-es="Inicio" data-en="Home">Inicio</a></li>
-    <li><a href="carta.html" data-es="Carta" data-en="Menu">Carta</a></li>
-    <li><a href="contacto.html" class="act" data-es="Contacto" data-en="Contact">Contacto</a></li>
+    <li><a href="index.html" data-es="Inicio" data-en="Home" data-ca="Inici">Inicio</a></li>
+    <li><a href="carta.html" data-es="Carta" data-en="Menu" data-ca="Carta">Carta</a></li>
+    <li><a href="contacto.html" class="act" data-es="Contacto" data-en="Contact" data-ca="Contacte">Contacto</a></li>
   </ul>
 
   <div class="nav-r">
@@ -185,6 +185,7 @@
     <div class="lt" role="group" aria-label="Idioma">
       <button id="btn-es" class="a" onclick="setLang('es')" aria-pressed="true">ES</button>
       <button id="btn-en" onclick="setLang('en')" aria-pressed="false">EN</button>
+      <button id="btn-ca" onclick="setLang('ca')" aria-pressed="false">CA</button>
     </div>
     <button class="hb" id="hbtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mob">
       <span></span><span></span><span></span>
@@ -193,24 +194,26 @@
 </nav>
 
 <div class="mob" id="mob" role="dialog" aria-modal="true">
-  <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
-  <a href="carta.html" data-es="Carta" data-en="Menu">Carta</a>
-  <a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a>
+  <a href="index.html" data-es="Inicio" data-en="Home" data-ca="Inici">Inicio</a>
+  <a href="carta.html" data-es="Carta" data-en="Menu" data-ca="Carta">Carta</a>
+  <a href="contacto.html" data-es="Contacto" data-en="Contact" data-ca="Contacte">Contacto</a>
   <div class="mob-lt">
     <button id="mob-btn-es" class="a" onclick="setLang('es')">ES</button>
     <button id="mob-btn-en" onclick="setLang('en')">EN</button>
+    <button id="mob-btn-ca" onclick="setLang('ca')">CA</button>
   </div>
 </div>
 
 <!-- ═══════════ PAGE HEADER ═══════════ -->
 <header class="page-hd">
   <div class="page-hd-in">
-    <span class="lbl fi" data-es="Estamos aquí para ti" data-en="We are here for you">Estamos aquí para ti</span>
+    <span class="lbl fi" data-es="Estamos aquí para ti" data-en="We are here for you" data-ca="Estam aquí per a tu">Estamos aquí para ti</span>
     <div class="page-hd-line"></div>
-    <h1 class="fi d1" data-es="Contacto" data-en="Contact">Contacto</h1>
+    <h1 class="fi d1" data-es="Contacto" data-en="Contact" data-ca="Contacte">Contacto</h1>
     <p class="fi d2"
        data-es="Reserva tu mesa, consúltanos o haz un pedido para llevar. Estaremos encantados de atenderte."
-       data-en="Book your table, ask us anything or place a takeaway order. We will be delighted to help you.">
+       data-en="Book your table, ask us anything or place a takeaway order. We will be delighted to help you."
+       data-ca="Reserva la teva taula, consulta'ns o fes una comanda per endur. Estarem encantats d'atendre't.">
       Reserva tu mesa, consúltanos o haz un pedido para llevar. Estaremos encantados de atenderte.
     </p>
   </div>
@@ -222,16 +225,16 @@
 
     <!-- LEFT: Info -->
     <div class="contact-info">
-      <span class="lbl fi" data-es="Cómo encontrarnos" data-en="How to find us">Cómo encontrarnos</span>
+      <span class="lbl fi" data-es="Cómo encontrarnos" data-en="How to find us" data-ca="Com trobar-nos">Cómo encontrarnos</span>
       <div class="contact-cards">
         <div class="cc fi">
           <div class="cc-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.56 3.41 2 2 0 0 1 3.53 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
           <div>
-            <span class="cc-label" data-es="Teléfono" data-en="Phone">Teléfono</span>
+            <span class="cc-label" data-es="Teléfono" data-en="Phone" data-ca="Telèfon">Teléfono</span>
             <div class="cc-value"><a href="tel:971525228">971 52 52 28</a></div>
-            <div class="cc-note" data-es="Reservas, pedidos y consultas" data-en="Reservations, orders and enquiries">Reservas, pedidos y consultas</div>
+            <div class="cc-note" data-es="Reservas, pedidos y consultas" data-en="Reservations, orders and enquiries" data-ca="Reserves, comandes i consultes">Reservas, pedidos y consultas</div>
           </div>
         </div>
 
@@ -240,9 +243,9 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <div>
-            <span class="cc-label" data-es="Dirección" data-en="Address">Dirección</span>
+            <span class="cc-label" data-es="Dirección" data-en="Address" data-ca="Adreça">Dirección</span>
             <div class="cc-value">C/ Granja, 56<br>07620 Llucmajor, Mallorca</div>
-            <div class="cc-note" data-es="Centro de Llucmajor, fácil aparcamiento cercano" data-en="Llucmajor town centre, easy nearby parking">Centro de Llucmajor, fácil aparcamiento cercano</div>
+            <div class="cc-note" data-es="Centro de Llucmajor, fácil aparcamiento cercano" data-en="Llucmajor town centre, easy nearby parking" data-ca="Centre de Llucmajor, fàcil aparcament proper">Centro de Llucmajor, fácil aparcamiento cercano</div>
           </div>
         </div>
 
@@ -251,9 +254,9 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
           <div>
-            <span class="cc-label" data-es="Email" data-en="Email">Email</span>
+            <span class="cc-label" data-es="Email" data-en="Email" data-ca="Correu electrònic">Email</span>
             <div class="cc-value"><a href="mailto:info@canjoan.com">info@canjoan.com</a></div>
-            <div class="cc-note" data-es="Te respondemos en menos de 24h" data-en="We reply within 24h">Te respondemos en menos de 24h</div>
+            <div class="cc-note" data-es="Te respondemos en menos de 24h" data-en="We reply within 24h" data-ca="Et responem en menys de 24h">Te respondemos en menos de 24h</div>
           </div>
         </div>
       </div>
@@ -262,35 +265,35 @@
       <div class="hours-box fi d3">
         <div class="hours-head">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8640A" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span data-es="Horario de apertura" data-en="Opening hours">Horario de apertura</span>
+          <span data-es="Horario de apertura" data-en="Opening hours" data-ca="Horari d'apertura">Horario de apertura</span>
         </div>
         <div class="hours-body">
           <div class="hr-row open">
-            <span class="day" data-es="Lunes" data-en="Monday">Lunes</span>
+            <span class="day" data-es="Lunes" data-en="Monday" data-ca="Dilluns">Lunes</span>
             <span class="time">13:00–15:30 · 20:00–23:00</span>
           </div>
           <div class="hr-row">
-            <span class="day" data-es="Martes" data-en="Tuesday">Martes</span>
-            <span class="time" data-es="Cerrado" data-en="Closed">Cerrado</span>
+            <span class="day" data-es="Martes" data-en="Tuesday" data-ca="Dimarts">Martes</span>
+            <span class="time" data-es="Cerrado" data-en="Closed" data-ca="Tancat">Cerrado</span>
           </div>
           <div class="hr-row open">
-            <span class="day" data-es="Miércoles" data-en="Wednesday">Miércoles</span>
+            <span class="day" data-es="Miércoles" data-en="Wednesday" data-ca="Dimecres">Miércoles</span>
             <span class="time">13:00–15:30 · 20:00–23:00</span>
           </div>
           <div class="hr-row">
-            <span class="day" data-es="Jueves" data-en="Thursday">Jueves</span>
-            <span class="time" data-es="Cerrado" data-en="Closed">Cerrado</span>
+            <span class="day" data-es="Jueves" data-en="Thursday" data-ca="Dijous">Jueves</span>
+            <span class="time" data-es="Cerrado" data-en="Closed" data-ca="Tancat">Cerrado</span>
           </div>
           <div class="hr-row">
-            <span class="day" data-es="Viernes" data-en="Friday">Viernes</span>
-            <span class="time" data-es="Cerrado" data-en="Closed">Cerrado</span>
+            <span class="day" data-es="Viernes" data-en="Friday" data-ca="Divendres">Viernes</span>
+            <span class="time" data-es="Cerrado" data-en="Closed" data-ca="Tancat">Cerrado</span>
           </div>
           <div class="hr-row">
-            <span class="day" data-es="Sábado" data-en="Saturday">Sábado</span>
-            <span class="time" data-es="Cerrado" data-en="Closed">Cerrado</span>
+            <span class="day" data-es="Sábado" data-en="Saturday" data-ca="Dissabte">Sábado</span>
+            <span class="time" data-es="Cerrado" data-en="Closed" data-ca="Tancat">Cerrado</span>
           </div>
           <div class="hr-row open">
-            <span class="day" data-es="Domingo" data-en="Sunday">Domingo</span>
+            <span class="day" data-es="Domingo" data-en="Sunday" data-ca="Diumenge">Domingo</span>
             <span class="time">13:00–15:30 · 20:00–23:00</span>
           </div>
         </div>
@@ -301,33 +304,33 @@
     <div>
       <div class="res-box fi">
         <div class="res-head">
-          <h2 data-es="Reservar Mesa" data-en="Book a Table">Reservar Mesa</h2>
-          <p data-es="Rellena el formulario y te confirmamos la reserva por teléfono o email." data-en="Fill in the form and we will confirm your reservation by phone or email.">Rellena el formulario y te confirmamos la reserva por teléfono o email.</p>
+          <h2 data-es="Reservar Mesa" data-en="Book a Table" data-ca="Reservar Taula">Reservar Mesa</h2>
+          <p data-es="Rellena el formulario y te confirmamos la reserva por teléfono o email." data-en="Fill in the form and we will confirm your reservation by phone or email." data-ca="Omple el formulari i et confirmarem la reserva per telèfon o correu electrònic.">Rellena el formulario y te confirmamos la reserva por teléfono o email.</p>
         </div>
 
         <form class="res-form" id="rform" novalidate>
           <div class="fr c2">
             <div class="fg">
-              <label for="rn" data-es="Nombre completo" data-en="Full name">Nombre completo</label>
+              <label for="rn" data-es="Nombre completo" data-en="Full name" data-ca="Nom complet">Nombre completo</label>
               <input type="text" id="rn" name="name" autocomplete="name" required
-                     data-ph-es="Joan García" data-ph-en="John Smith" placeholder="Joan García">
+                     data-ph-es="Joan García" data-ph-en="John Smith" data-ph-ca="Joan García" placeholder="Joan García">
             </div>
             <div class="fg">
-              <label for="re" data-es="Correo electrónico" data-en="Email">Correo electrónico</label>
+              <label for="re" data-es="Correo electrónico" data-en="Email" data-ca="Correu electrònic">Correo electrónico</label>
               <input type="email" id="re" name="email" autocomplete="email" required placeholder="email@ejemplo.com">
             </div>
           </div>
           <div class="fg">
-            <label for="rp" data-es="Teléfono" data-en="Phone">Teléfono</label>
+            <label for="rp" data-es="Teléfono" data-en="Phone" data-ca="Telèfon">Teléfono</label>
             <input type="tel" id="rp" name="phone" autocomplete="tel" placeholder="+34 600 000 000">
           </div>
           <div class="fr c3">
             <div class="fg">
-              <label for="rd" data-es="Fecha" data-en="Date">Fecha</label>
+              <label for="rd" data-es="Fecha" data-en="Date" data-ca="Data">Fecha</label>
               <input type="date" id="rd" name="date" required>
             </div>
             <div class="fg">
-              <label for="rt" data-es="Hora" data-en="Time">Hora</label>
+              <label for="rt" data-es="Hora" data-en="Time" data-ca="Hora">Hora</label>
               <select id="rt" name="time" required>
                 <option value="">--:--</option>
                 <option>13:00</option><option>13:30</option>
@@ -338,7 +341,7 @@
               </select>
             </div>
             <div class="fg">
-              <label for="rg" data-es="Personas" data-en="Guests">Personas</label>
+              <label for="rg" data-es="Personas" data-en="Guests" data-ca="Persones">Personas</label>
               <select id="rg" name="guests" required>
                 <option value="">—</option>
                 <option>1</option><option>2</option><option>3</option>
@@ -348,15 +351,16 @@
             </div>
           </div>
           <div class="fg">
-            <label for="rm" data-es="Comentarios (opcional)" data-en="Comments (optional)">Comentarios (opcional)</label>
+            <label for="rm" data-es="Comentarios (opcional)" data-en="Comments (optional)" data-ca="Comentaris (opcional)">Comentarios (opcional)</label>
             <textarea id="rm" name="msg" rows="3"
                       data-ph-es="Alergias, celebraciones, zona preferida…"
                       data-ph-en="Allergies, celebrations, preferred area…"
+                      data-ph-ca="Al·lèrgies, celebracions, zona preferida…"
                       placeholder="Alergias, celebraciones, zona preferida…"></textarea>
           </div>
           <button type="submit" class="btn-submit" id="rsv-btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.56 3.41 2 2 0 0 1 3.53 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span id="rsv-txt" data-es="Confirmar Reserva" data-en="Confirm Booking">Confirmar Reserva</span>
+            <span id="rsv-txt" data-es="Confirmar Reserva" data-en="Confirm Booking" data-ca="Confirmar Reserva">Confirmar Reserva</span>
           </button>
         </form>
 
@@ -364,8 +368,8 @@
           <div class="success-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <h3 data-es="¡Reserva enviada!" data-en="Booking sent!">¡Reserva enviada!</h3>
-          <p data-es="Te confirmaremos tu mesa en breve por teléfono o email. ¡Hasta pronto!" data-en="We will confirm your table shortly by phone or email. See you soon!">Te confirmaremos tu mesa en breve por teléfono o email. ¡Hasta pronto!</p>
+          <h3 data-es="¡Reserva enviada!" data-en="Booking sent!" data-ca="Reserva enviada!">¡Reserva enviada!</h3>
+          <p data-es="Te confirmaremos tu mesa en breve por teléfono o email. ¡Hasta pronto!" data-en="We will confirm your table shortly by phone or email. See you soon!" data-ca="Et confirmarem la taula en breu per telèfon o correu electrònic. Fins aviat!">Te confirmaremos tu mesa en breve por teléfono o email. ¡Hasta pronto!</p>
         </div>
       </div>
     </div>
@@ -376,9 +380,9 @@
 <!-- ═══════════ MAP ═══════════ -->
 <section id="map-section" aria-label="Ubicación en el mapa">
   <div class="map-in">
-    <span class="lbl fi" data-es="Cómo llegar" data-en="How to get here">Cómo llegar</span>
+    <span class="lbl fi" data-es="Cómo llegar" data-en="How to get here" data-ca="Com arribar-hi">Cómo llegar</span>
     <h2 class="sec-h2 fi d1" style="margin-bottom:2rem">
-      <span data-es="Nos encontrarás en el " data-en="Find us in the ">Nos encontrarás en el </span><em data-es="centro de Llucmajor" data-en="heart of Llucmajor">centro de Llucmajor</em>
+      <span data-es="Nos encontrarás en el " data-en="Find us in the " data-ca="Ens trobaràs al ">Nos encontrarás en el </span><em data-es="centro de Llucmajor" data-en="heart of Llucmajor" data-ca="centre de Llucmajor">centro de Llucmajor</em>
     </h2>
     <div class="map-placeholder fi d2">
     <iframe
@@ -393,7 +397,7 @@
     <div class="map-btn fi d3">
       <a href="https://www.google.com/maps?q=C/ de Gràcia, 62, 07620 Llucmajor" target="_blank" rel="noopener" class="btn-primary">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span data-es="Abrir en Google Maps" data-en="Open in Google Maps">Abrir en Google Maps</span>
+        <span data-es="Abrir en Google Maps" data-en="Open in Google Maps" data-ca="Obrir a Google Maps">Abrir en Google Maps</span>
       </a>
     </div>
   </div>
@@ -404,10 +408,11 @@
   <div class="foot-g">
     <div class="fi">
       <span class="foot-logo">Can Joan</span>
-      <span class="foot-sub" data-es="Pizzería Artesanal · Llucmajor" data-en="Artisan Pizzeria · Llucmajor">Pizzería Artesanal · Llucmajor</span>
+      <span class="foot-sub" data-es="Pizzería Artesanal · Llucmajor" data-en="Artisan Pizzeria · Llucmajor" data-ca="Pizzeria Artesanal · Llucmajor">Pizzería Artesanal · Llucmajor</span>
       <p class="foot-p"
          data-es="Más de tres décadas cocinando con fuego, pasión y los mejores ingredientes de la isla."
-         data-en="Over three decades cooking with fire, passion, and the finest ingredients on the island.">
+         data-en="Over three decades cooking with fire, passion, and the finest ingredients on the island."
+         data-ca="Més de tres dècades cuinant amb foc, passió i els millors ingredients de l'illa.">
         Más de tres décadas cocinando con fuego, pasión y los mejores ingredientes de la isla.
       </p>
       <div class="soc">
@@ -416,19 +421,19 @@
       </div>
     </div>
     <div class="fi d1">
-      <span class="fcol-t" data-es="Encuéntranos" data-en="Find Us">Encuéntranos</span>
+      <span class="fcol-t" data-es="Encuéntranos" data-en="Find Us" data-ca="Trobeu-nos">Encuéntranos</span>
       <div class="finfo"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>C/ Granja, 56<br>07620 Llucmajor, Mallorca</span></div>
       <div class="finfo"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.56 3.41 2 2 0 0 1 3.53 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:971525228">971 52 52 28</a></div>
     </div>
     <div class="fi d2">
-      <span class="fcol-t" data-es="Horario" data-en="Hours">Horario</span>
-      <div class="fhr hl"><span class="day" data-es="Lun / Mié / Dom" data-en="Mon / Wed / Sun">Lun / Mié / Dom</span><span>13–23h</span></div>
-      <div class="fhr"><span class="day" data-es="Mar / Jue / Vie / Sáb" data-en="Tue / Thu / Fri / Sat">Mar / Jue / Vie / Sáb</span><span data-es="Cerrado" data-en="Closed">Cerrado</span></div>
+      <span class="fcol-t" data-es="Horario" data-en="Hours" data-ca="Horari">Horario</span>
+      <div class="fhr hl"><span class="day" data-es="Lun / Mié / Dom" data-en="Mon / Wed / Sun" data-ca="Dll / Dim / Diu">Lun / Mié / Dom</span><span>13–23h</span></div>
+      <div class="fhr"><span class="day" data-es="Mar / Jue / Vie / Sáb" data-en="Tue / Thu / Fri / Sat" data-ca="Dmt / Dij / Div / Dis">Mar / Jue / Vie / Sáb</span><span data-es="Cerrado" data-en="Closed" data-ca="Tancat">Cerrado</span></div>
     </div>
   </div>
   <div class="fbot">
-    <p class="fcopy">&copy; 2026 Can Joan Pizzería. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
-    <p class="fmade"><span data-es="Hecho con " data-en="Made with ">Hecho con </span><span>♥</span><span data-es=" en Mallorca" data-en=" in Mallorca"> en Mallorca</span></p>
+    <p class="fcopy">&copy; 2026 Can Joan Pizzería. <span data-es="Todos los derechos reservados." data-en="All rights reserved." data-ca="Tots els drets reservats.">Todos los derechos reservados.</span></p>
+    <p class="fmade"><span data-es="Hecho con " data-en="Made with " data-ca="Fet amb ">Hecho con </span><span>♥</span><span data-es=" en Mallorca" data-en=" in Mallorca" data-ca=" a Mallorca"> en Mallorca</span></p>
   </div>
 </footer>
 
@@ -437,19 +442,27 @@
   function setLang(l) {
     lang = l; localStorage.setItem('cj-lang', l);
     document.documentElement.lang = l;
-    ['btn-es','btn-en','mob-btn-es','mob-btn-en'].forEach(id => {
-      const el = document.getElementById(id); if (!el) return;
-      const isActive = (id.includes('es') && l==='es') || (id.includes('en') && l==='en');
-      el.classList.toggle('a', isActive); el.setAttribute('aria-pressed', isActive);
+    ['es','en','ca'].forEach(code => {
+      ['btn-'+code,'mob-btn-'+code].forEach(id => {
+        const el = document.getElementById(id); if (!el) return;
+        const active = code === l;
+        el.classList.toggle('a', active); el.setAttribute('aria-pressed', String(active));
+      });
     });
-    document.querySelectorAll('[data-es][data-en]').forEach(el => {
-      const v = el.getAttribute('data-'+l);
+    document.querySelectorAll('[data-es]').forEach(el => {
+      const attr = el.getAttribute('data-'+l);
+      const v = attr !== null ? attr : el.getAttribute('data-es');
       if (v !== null && el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA') el.innerHTML = v;
     });
-    document.querySelectorAll('[data-ph-es][data-ph-en]').forEach(el => {
-      el.placeholder = el.getAttribute('data-ph-'+l) || '';
+    document.querySelectorAll('[data-ph-es]').forEach(el => {
+      el.placeholder = el.getAttribute('data-ph-'+l) || el.getAttribute('data-ph-es') || '';
     });
-    document.title = l === 'en' ? 'Contact — Can Joan Artisan Pizzeria · Llucmajor' : 'Contacto — Can Joan Pizzería Artesanal · Llucmajor';
+    const titles = {
+      es: 'Contacto — Can Joan Pizzería Artesanal · Llucmajor',
+      en: 'Contact — Can Joan Artisan Pizzeria · Llucmajor',
+      ca: 'Contacte — Can Joan Pizzeria Artesanal · Llucmajor'
+    };
+    document.title = titles[l] || titles.es;
   }
   setLang(lang);
 

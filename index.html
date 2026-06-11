@@ -296,11 +296,11 @@
   </a>
 
   <ul class="nav-links" role="list">
-    <li><a href="index.html" class="act" data-es="Inicio" data-en="Home">Inicio</a></li>
-    <li><a href="#tradicion" data-es="La Pizzería" data-en="The Pizzeria">La Pizzería</a></li>
-    <li><a href="carta.html" data-es="Carta" data-en="Menu">Carta</a></li>
-    <li><a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a></li>
-    <li><a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a></li>
+    <li><a href="index.html" class="act" data-es="Inicio" data-en="Home" data-ca="Inici">Inicio</a></li>
+    <li><a href="#tradicion" data-es="La Pizzería" data-en="The Pizzeria" data-ca="La Pizzeria">La Pizzería</a></li>
+    <li><a href="carta.html" data-es="Carta" data-en="Menu" data-ca="Carta">Carta</a></li>
+    <li><a href="#galeria" data-es="Galería" data-en="Gallery" data-ca="Galeria">Galería</a></li>
+    <li><a href="contacto.html" data-es="Contacto" data-en="Contact" data-ca="Contacte">Contacto</a></li>
   </ul>
 
   <div class="nav-r">
@@ -311,6 +311,7 @@
     <div class="lt" role="group" aria-label="Idioma">
       <button id="btn-es" class="a" onclick="setLang('es')" aria-pressed="true">ES</button>
       <button id="btn-en" onclick="setLang('en')" aria-pressed="false">EN</button>
+      <button id="btn-ca" onclick="setLang('ca')" aria-pressed="false">CA</button>
     </div>
     <button class="hb" id="hbtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mob">
       <span></span><span></span><span></span>
@@ -320,13 +321,14 @@
 
 <!-- Mobile overlay -->
 <div class="mob" id="mob" role="dialog" aria-modal="true" aria-label="Menú móvil">
-  <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
-  <a href="#tradicion" data-es="La Pizzería" data-en="The Pizzeria">La Pizzería</a>
-  <a href="carta.html" data-es="Carta" data-en="Menu">Carta</a>
-  <a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a>
+  <a href="index.html" data-es="Inicio" data-en="Home" data-ca="Inici">Inicio</a>
+  <a href="#tradicion" data-es="La Pizzería" data-en="The Pizzeria" data-ca="La Pizzeria">La Pizzería</a>
+  <a href="carta.html" data-es="Carta" data-en="Menu" data-ca="Carta">Carta</a>
+  <a href="contacto.html" data-es="Contacto" data-en="Contact" data-ca="Contacte">Contacto</a>
   <div class="mob-lt">
     <button id="mob-btn-es" class="a" onclick="setLang('es')">ES</button>
     <button id="mob-btn-en" onclick="setLang('en')">EN</button>
+    <button id="mob-btn-ca" onclick="setLang('ca')">CA</button>
   </div>
 </div>
 
@@ -347,25 +349,26 @@
   <div class="hero-wrap">
     <div class="hero-text">
       <span class="hero-desde fi"
-            data-es="DESDE 1989" data-en="SINCE 1989">DESDE 1989</span>
+            data-es="DESDE 1989" data-en="SINCE 1989" data-ca="DES DE 1989">DESDE 1989</span>
       <h1 class="hero-h1 fi d1">
-        <span data-es="El sabor" data-en="The taste">El sabor</span><br>
-        <span data-es="de siempre" data-en="that endures">de siempre</span><br>
-        <em data-es="en Llucmajor" data-en="in Llucmajor">en Llucmajor</em>
+        <span data-es="El sabor" data-en="The taste" data-ca="El sabor">El sabor</span><br>
+        <span data-es="de siempre" data-en="that endures" data-ca="de sempre">de siempre</span><br>
+        <em data-es="en Llucmajor" data-en="in Llucmajor" data-ca="a Llucmajor">en Llucmajor</em>
       </h1>
       <div class="hero-underline fi d2"></div>
       <p class="hero-sub fi d2"
          data-es="Pizzería familiar con más de 20 años de experiencia ofreciendo productos de primera calidad a un precio realmente asequible."
-         data-en="Family pizzeria with over 20 years of experience offering top-quality products at a truly affordable price.">
+         data-en="Family pizzeria with over 20 years of experience offering top-quality products at a truly affordable price."
+         data-ca="Pizzeria familiar amb més de 20 anys d'experiència oferint productes de primera qualitat a un preu realment assequible.">
         Pizzería familiar con más de 20 años de experiencia ofreciendo productos de primera calidad a un precio realmente asequible.
       </p>
       <div class="hero-btns fi d3">
         <a href="carta.html" class="btn-hero-outline">
-          <span data-es="Ver Carta" data-en="View Menu">Ver Carta</span>
+          <span data-es="Ver Carta" data-en="View Menu" data-ca="Veure Carta">Ver Carta</span>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="contacto.html" class="btn-hero-solid">
-          <span data-es="Reservar Mesa" data-en="Book a Table">Reservar Mesa</span>
+          <span data-es="Reservar Mesa" data-en="Book a Table" data-ca="Reservar Taula">Reservar Mesa</span>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -381,29 +384,29 @@
       <div class="feat-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
       </div>
-      <span class="feat-name" data-es="Pizzas Artesanales" data-en="Artisan Pizzas">Pizzas Artesanales</span>
-      <p class="feat-desc" data-es="Masa casera e ingredientes de primera calidad." data-en="Homemade dough and top quality ingredients.">Masa casera e ingredientes de primera calidad.</p>
+      <span class="feat-name" data-es="Pizzas Artesanales" data-en="Artisan Pizzas" data-ca="Pizzes Artesanals">Pizzas Artesanales</span>
+      <p class="feat-desc" data-es="Masa casera e ingredientes de primera calidad." data-en="Homemade dough and top quality ingredients." data-ca="Massa casolana i ingredients de primera qualitat.">Masa casera e ingredientes de primera calidad.</p>
     </div>
     <div class="feat fi d1">
       <div class="feat-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
-      <span class="feat-name" data-es="Terraza Exterior" data-en="Outdoor Terrace">Terraza Exterior</span>
-      <p class="feat-desc" data-es="Disfruta de nuestras noches en un ambiente único." data-en="Enjoy our evenings in a unique atmosphere.">Disfruta de nuestras noches en un ambiente único.</p>
+      <span class="feat-name" data-es="Terraza Exterior" data-en="Outdoor Terrace" data-ca="Terrassa Exterior">Terraza Exterior</span>
+      <p class="feat-desc" data-es="Disfruta de nuestras noches en un ambiente único." data-en="Enjoy our evenings in a unique atmosphere." data-ca="Gaudeix de les nostres nits en un ambient únic.">Disfruta de nuestras noches en un ambiente único.</p>
     </div>
     <div class="feat fi d2">
       <div class="feat-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       </div>
-      <span class="feat-name" data-es="Para Familias" data-en="For Families">Para Familias</span>
-      <p class="feat-desc" data-es="Espacios amplios y ambiente acogedor para todos." data-en="Spacious areas and a welcoming atmosphere for everyone.">Espacios amplios y ambiente acogedor para todos.</p>
+      <span class="feat-name" data-es="Para Familias" data-en="For Families" data-ca="Per a Famílies">Para Familias</span>
+      <p class="feat-desc" data-es="Espacios amplios y ambiente acogedor para todos." data-en="Spacious areas and a welcoming atmosphere for everyone." data-ca="Espais amplis i ambient acollidor per a tothom.">Espacios amplios y ambiente acogedor para todos.</p>
     </div>
     <div class="feat fi d3">
       <div class="feat-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
       </div>
-      <span class="feat-name" data-es="Para Llevar" data-en="Takeaway">Para Llevar</span>
-      <p class="feat-desc" data-es="Pide y recoge tu pedido en el local." data-en="Order and collect from the restaurant.">Pide y recoge tu pedido en el local.</p>
+      <span class="feat-name" data-es="Para Llevar" data-en="Takeaway" data-ca="Per endur">Para Llevar</span>
+      <p class="feat-desc" data-es="Pide y recoge tu pedido en el local." data-en="Order and collect from the restaurant." data-ca="Demana i recull la teva comanda al local.">Pide y recoge tu pedido en el local.</p>
     </div>
   </div>
 </section>
@@ -423,19 +426,21 @@
     </div>
     <!-- col 3: texto -->
     <div class="ms-text fi d2">
-      <span class="lbl" data-es="Nuestra Historia" data-en="Our Story">Nuestra Historia</span>
+      <span class="lbl" data-es="Nuestra Historia" data-en="Our Story" data-ca="La nostra Història">Nuestra Historia</span>
       <h2 class="ms-h2"
           data-es="Tradición familiar<br>desde 1989"
-          data-en="Family tradition<br>since 1989">
+          data-en="Family tradition<br>since 1989"
+          data-ca="Tradició familiar<br>des de 1989">
         Tradición familiar<br>desde 1989
       </h2>
       <p class="ms-p"
          data-es="Ca'n Joan nació como un pequeño sueño familiar y hoy seguimos cocinando con la misma pasión de siempre, ofreciendo calidad, buen ambiente y el mejor servicio."
-         data-en="Ca'n Joan was born as a small family dream and today we keep cooking with the same passion as always, offering quality, great atmosphere and the best service.">
+         data-en="Ca'n Joan was born as a small family dream and today we keep cooking with the same passion as always, offering quality, great atmosphere and the best service."
+         data-ca="Ca'n Joan va néixer com un petit somni familiar i avui seguim cuinant amb la mateixa passió de sempre, oferint qualitat, bon ambient i el millor servei.">
         Ca'n Joan nació como un pequeño sueño familiar y hoy seguimos cocinando con la misma pasión de siempre, ofreciendo calidad, buen ambiente y el mejor servicio.
       </p>
       <a href="contacto.html" class="btn-ms">
-        <span data-es="Conócenos" data-en="Meet us">Conócenos</span>
+        <span data-es="Conócenos" data-en="Meet us" data-ca="Conegueu-nos">Conócenos</span>
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -462,7 +467,7 @@
       </div>
       <div>
         <a href="tel:971120228" class="ib-main">971 12 02 28</a>
-        <span class="ib-sub" data-es="Haz tu reserva" data-en="Make a reservation">Haz tu reserva</span>
+        <span class="ib-sub" data-es="Haz tu reserva" data-en="Make a reservation" data-ca="Fes la teva reserva">Haz tu reserva</span>
       </div>
     </div>
 
@@ -485,8 +490,8 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       </div>
       <div>
-        <span class="ib-main" data-es="Lunes, Miércoles a Domingo" data-en="Mon, Wed to Sun">Lunes, Miércoles a Domingo</span>
-        <span class="ib-sub" data-es="19:00 – 23:30 · Martes cerrado" data-en="7:00pm – 11:30pm · Tuesday closed">19:00 – 23:30 · Martes cerrado</span>
+        <span class="ib-main" data-es="Lunes, Miércoles a Domingo" data-en="Mon, Wed to Sun" data-ca="Dilluns, Dimecres a Diumenge">Lunes, Miércoles a Domingo</span>
+        <span class="ib-sub" data-es="19:00 – 23:30 · Martes cerrado" data-en="7:00pm – 11:30pm · Tuesday closed" data-ca="19:00 – 23:30 · Dimarts tancat">19:00 – 23:30 · Martes cerrado</span>
       </div>
     </div>
 
@@ -509,15 +514,16 @@
   <div class="foot-g">
     <div class="fi">
       <span class="foot-logo">Can Joan</span>
-      <span class="foot-sub" data-es="Pizzería Artesanal · Llucmajor" data-en="Artisan Pizzeria · Llucmajor">Pizzería Artesanal · Llucmajor</span>
+      <span class="foot-sub" data-es="Pizzería Artesanal · Llucmajor" data-en="Artisan Pizzeria · Llucmajor" data-ca="Pizzeria Artesanal · Llucmajor">Pizzería Artesanal · Llucmajor</span>
       <p class="foot-p"
          data-es="Más de dos décadas cocinando con fuego, pasión y los mejores ingredientes de la isla."
-         data-en="Over two decades cooking with fire, passion, and the finest ingredients on the island.">
+         data-en="Over two decades cooking with fire, passion, and the finest ingredients on the island."
+         data-ca="Més de dues dècades cuinant amb foc, passió i els millors ingredients de l'illa.">
         Más de dos décadas cocinando con fuego, pasión y los mejores ingredientes de la isla.
       </p>
     </div>
     <div class="fi d1">
-      <span class="fcol-t" data-es="Encuéntranos" data-en="Find Us">Encuéntranos</span>
+      <span class="fcol-t" data-es="Encuéntranos" data-en="Find Us" data-ca="Trobeu-nos">Encuéntranos</span>
       <div class="finfo">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <span>C/ de Gràcia, 62<br>07620 Llucmajor, Mallorca</span>
@@ -528,14 +534,14 @@
       </div>
     </div>
     <div class="fi d2">
-      <span class="fcol-t" data-es="Horario" data-en="Hours">Horario</span>
-      <div class="fhr hl"><span class="day" data-es="Lun / Mié a Dom" data-en="Mon / Wed to Sun">Lun / Mié a Dom</span><span>19:00–23:30</span></div>
-      <div class="fhr"><span class="day" data-es="Martes" data-en="Tuesday">Martes</span><span data-es="Cerrado" data-en="Closed">Cerrado</span></div>
+      <span class="fcol-t" data-es="Horario" data-en="Hours" data-ca="Horari">Horario</span>
+      <div class="fhr hl"><span class="day" data-es="Lun / Mié a Dom" data-en="Mon / Wed to Sun" data-ca="Dll / Dim a Diu">Lun / Mié a Dom</span><span>19:00–23:30</span></div>
+      <div class="fhr"><span class="day" data-es="Martes" data-en="Tuesday" data-ca="Dimarts">Martes</span><span data-es="Cerrado" data-en="Closed" data-ca="Tancat">Cerrado</span></div>
     </div>
   </div>
   <div class="fbot">
-    <p class="fcopy">&copy; 2026 Can Joan Pizzería. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
-    <p class="fmade"><span data-es="Hecho con " data-en="Made with ">Hecho con </span><span>♥</span><span data-es=" en Mallorca" data-en=" in Mallorca"> en Mallorca</span></p>
+    <p class="fcopy">&copy; 2026 Can Joan Pizzería. <span data-es="Todos los derechos reservados." data-en="All rights reserved." data-ca="Tots els drets reservats.">Todos los derechos reservados.</span></p>
+    <p class="fmade"><span data-es="Hecho con " data-en="Made with " data-ca="Fet amb ">Hecho con </span><span>♥</span><span data-es=" en Mallorca" data-en=" in Mallorca" data-ca=" a Mallorca"> en Mallorca</span></p>
   </div>
 </footer>
 
@@ -545,18 +551,24 @@
   function setLang(l) {
     lang = l; localStorage.setItem('cj-lang', l);
     document.documentElement.lang = l;
-    ['btn-es','btn-en','mob-btn-es','mob-btn-en'].forEach(id => {
-      const el = document.getElementById(id); if (!el) return;
-      const isActive = (id.includes('es') && l==='es') || (id.includes('en') && l==='en');
-      el.classList.toggle('a', isActive); el.setAttribute('aria-pressed', isActive);
+    ['es','en','ca'].forEach(code => {
+      ['btn-'+code,'mob-btn-'+code].forEach(id => {
+        const el = document.getElementById(id); if (!el) return;
+        const active = code === l;
+        el.classList.toggle('a', active); el.setAttribute('aria-pressed', String(active));
+      });
     });
-    document.querySelectorAll('[data-es][data-en]').forEach(el => {
-      const v = el.getAttribute('data-'+l);
+    document.querySelectorAll('[data-es]').forEach(el => {
+      const attr = el.getAttribute('data-'+l);
+      const v = attr !== null ? attr : el.getAttribute('data-es');
       if (v !== null && el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA') el.innerHTML = v;
     });
-    document.title = l === 'en'
-      ? 'Can Joan — Artisan Pizzeria · Llucmajor, Mallorca'
-      : 'Can Joan — Pizzería Artesanal · Llucmajor, Mallorca';
+    const titles = {
+      es: 'Can Joan — Pizzería Artesanal · Llucmajor, Mallorca',
+      en: 'Can Joan — Artisan Pizzeria · Llucmajor, Mallorca',
+      ca: 'Can Joan — Pizzeria Artesanal · Llucmajor, Mallorca'
+    };
+    document.title = titles[l] || titles.es;
   }
   setLang(lang);
 
