@@ -421,16 +421,6 @@ window.MENU_DATA = {
           "price": "5,50€"
         },
         {
-          "name": "Panna Cotta de Limón",
-          "tag": null,
-          "desc": {
-            "es": "Panna cotta con limón de Sóller, coulis de frutos rojos y menta fresca",
-            "en": "Panna cotta with Sóller lemon, red fruit coulis and fresh mint",
-            "ca": "Panna cotta amb llimona de Sóller, coulis de fruits vermells i menta fresca"
-          },
-          "price": "5,00€"
-        },
-        {
           "name": "Tarta de Queso",
           "tag": null,
           "desc": {
@@ -439,6 +429,16 @@ window.MENU_DATA = {
             "ca": "Pastís de formatge a l'estil Sant Sebastià, cremós i lleugerament cremat per fora"
           },
           "price": "5,50€"
+        },
+        {
+          "name": "Panna Cotta de Limón",
+          "tag": null,
+          "desc": {
+            "es": "Panna cotta con limón de Sóller, coulis de frutos rojos y menta fresca",
+            "en": "Panna cotta with Sóller lemon, red fruit coulis and fresh mint",
+            "ca": "Panna cotta amb llimona de Sóller, coulis de fruits vermells i menta fresca"
+          },
+          "price": "6,00€"
         },
         {
           "name": "Helado Artesano",
