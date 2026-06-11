@@ -1,28 +1,45 @@
-/* Datos del menú de Can Joan. Edita este archivo para añadir, eliminar o modificar platos.
-   Cada categoría tiene: id, icon, label (es/en/ca), sub (es/en/ca), y un array de items.
-   Cada item tiene: name, tag (null si no hay), desc (es/en/ca), price. */
+/* Can Joan — Carta del restaurante.
+   Edita este archivo o usa el CMS para añadir, eliminar o modificar platos.
+   Cada categoría: id, icon, label(es/en/ca), sub(es/en/ca), items[].
+   Cada plato: name, tag(null o {es/en/ca}), desc{es/en/ca}, price. */
 
 window.MENU_DATA = {
   "categories": [
     {
       "id": "pizzas",
       "icon": "pizza",
-      "label": { "es": "Pizzas", "en": "Pizzas", "ca": "Pizzes" },
-      "sub":   { "es": "horno de leña", "en": "wood-fired", "ca": "forn de llenya" },
+      "label": {
+        "es": "Pizzas",
+        "en": "Pizzas",
+        "ca": "Pizzes"
+      },
+      "sub": {
+        "es": "horno de leña",
+        "en": "wood-fired",
+        "ca": "forn de llenya"
+      },
       "items": [
         {
           "name": "Margherita",
-          "tag":  { "es": "Clásica", "en": "Classic", "ca": "Clàssica" },
+          "tag": {
+            "es": "Clásica",
+            "en": "Classic",
+            "ca": "Clàssica"
+          },
           "desc": {
             "es": "Tomate natural, mozzarella fior di latte, albahaca fresca, AOVE",
             "en": "Natural tomato, fior di latte mozzarella, fresh basil, EVOO",
             "ca": "Tomàtiga natural, mozzarella fior di latte, alfàbega fresca, AOVE"
           },
-          "price": "9,50€"
+          "price": "12€"
         },
         {
           "name": "Mamasita",
-          "tag":  { "es": "Clásica", "en": "Classic", "ca": "Clàssica" },
+          "tag": {
+            "es": "Clásica",
+            "en": "Classic",
+            "ca": "Clàssica"
+          },
           "desc": {
             "es": "Tomate natural, mozzarella fior di latte, albahaca fresca, AOVE",
             "en": "Natural tomato, fior di latte mozzarella, fresh basil, EVOO",
@@ -32,7 +49,11 @@ window.MENU_DATA = {
         },
         {
           "name": "490 Quesos",
-          "tag":  { "es": "Vegetariana", "en": "Vegetarian", "ca": "Vegetariana" },
+          "tag": {
+            "es": "Vegetariana",
+            "en": "Vegetarian",
+            "ca": "Vegetariana"
+          },
           "desc": {
             "es": "Mozzarella, gorgonzola, parmigiano reggiano, provola affumicata",
             "en": "Mozzarella, gorgonzola, parmigiano reggiano, smoked provola",
@@ -42,7 +63,11 @@ window.MENU_DATA = {
         },
         {
           "name": "Can Joan",
-          "tag":  { "es": "Firma", "en": "Signature", "ca": "Signatura" },
+          "tag": {
+            "es": "Firma",
+            "en": "Signature",
+            "ca": "Signatura"
+          },
           "desc": {
             "es": "Sobrasada mallorquina, miel de la Serra de Tramuntana, queso mahonés, rúcula",
             "en": "Mallorcan sobrasada, honey from Serra de Tramuntana, Mahón cheese, rocket",
@@ -52,7 +77,7 @@ window.MENU_DATA = {
         },
         {
           "name": "Mallorquina",
-          "tag":  null,
+          "tag": null,
           "desc": {
             "es": "Gambas del mediterráneo, alcachofas, tomate seco, aceitunas negras, mozzarella",
             "en": "Mediterranean prawns, artichokes, sun-dried tomato, black olives, mozzarella",
@@ -62,7 +87,11 @@ window.MENU_DATA = {
         },
         {
           "name": "Marinara",
-          "tag":  { "es": "Vegana", "en": "Vegan", "ca": "Vegana" },
+          "tag": {
+            "es": "Vegana",
+            "en": "Vegan",
+            "ca": "Vegana"
+          },
           "desc": {
             "es": "Tomate natural, ajo, orégano, AOVE. Sin queso, receta napolitana tradicional",
             "en": "Natural tomato, garlic, oregano, EVOO. No cheese, traditional Neapolitan recipe",
@@ -72,7 +101,7 @@ window.MENU_DATA = {
         },
         {
           "name": "Bosco",
-          "tag":  null,
+          "tag": null,
           "desc": {
             "es": "Crema de setas, boletus, mozzarella, trufa negra, aceite de ajo",
             "en": "Mushroom cream, porcini, mozzarella, black truffle, garlic oil",
@@ -82,7 +111,7 @@ window.MENU_DATA = {
         },
         {
           "name": "Diavola",
-          "tag":  null,
+          "tag": null,
           "desc": {
             "es": "Tomate natural, mozzarella, salame piccante, pimientos asados, guindilla",
             "en": "Natural tomato, mozzarella, spicy salami, roasted peppers, chilli",
@@ -92,7 +121,7 @@ window.MENU_DATA = {
         },
         {
           "name": "Prosciutto e Funghi",
-          "tag":  null,
+          "tag": null,
           "desc": {
             "es": "Tomate natural, mozzarella, jamón cocido, champiñones, orégano",
             "en": "Natural tomato, mozzarella, cooked ham, mushrooms, oregano",
@@ -105,12 +134,20 @@ window.MENU_DATA = {
     {
       "id": "pastas",
       "icon": "pasta",
-      "label": { "es": "Pastas", "en": "Pasta", "ca": "Pastes" },
-      "sub":   { "es": "pasta fresca artesana", "en": "artisan fresh pasta", "ca": "pasta fresca artesana" },
+      "label": {
+        "es": "Pastas",
+        "en": "Pasta",
+        "ca": "Pastes"
+      },
+      "sub": {
+        "es": "pasta fresca artesana",
+        "en": "artisan fresh pasta",
+        "ca": "pasta fresca artesana"
+      },
       "items": [
         {
           "name": "Spaghetti Bolognesa",
-          "tag":  null,
+          "tag": null,
           "desc": {
             "es": "Ragú de ternera cocinado lentamente, parmigiano reggiano, albahaca",
             "en": "Slow-cooked beef ragù, parmigiano reggiano, basil",
@@ -120,7 +157,7 @@ window.MENU_DATA = {
         },
         {
           "name": "Spaghetti Carbonara",
-          "tag":  null,
+          "tag": null,
           "desc": {
             "es": "Guanciale, huevo, pecorino romano, pimienta negra. Receta original romana",
             "en": "Guanciale, egg, pecorino romano, black pepper. Original Roman recipe",
@@ -130,7 +167,7 @@ window.MENU_DATA = {
         },
         {
           "name": "Lasaña Casera",
-          "tag":  null,
+          "tag": null,
           "desc": {
             "es": "Pasta fresca, ragú de ternera y cerdo, bechamel artesana, parmigiano",
             "en": "Fresh pasta, beef and pork ragù, artisan béchamel, parmigiano",
@@ -140,7 +177,11 @@ window.MENU_DATA = {
         },
         {
           "name": "Penne all'Arrabbiata",
-          "tag":  { "es": "Vegana", "en": "Vegan", "ca": "Vegana" },
+          "tag": {
+            "es": "Vegana",
+            "en": "Vegan",
+            "ca": "Vegana"
+          },
           "desc": {
             "es": "Tomate natural, ajo, guindilla, AOVE, perejil fresco",
             "en": "Natural tomato, garlic, chilli, EVOO, fresh parsley",
@@ -150,7 +191,11 @@ window.MENU_DATA = {
         },
         {
           "name": "Tagliatelle ai Funghi",
-          "tag":  { "es": "Vegetariana", "en": "Vegetarian", "ca": "Vegetariana" },
+          "tag": {
+            "es": "Vegetariana",
+            "en": "Vegetarian",
+            "ca": "Vegetariana"
+          },
           "desc": {
             "es": "Mezcla de setas de temporada, crema, parmigiano, trufa",
             "en": "Seasonal mushroom mix, cream, parmigiano, truffle",
@@ -163,12 +208,20 @@ window.MENU_DATA = {
     {
       "id": "carnes",
       "icon": "meat",
-      "label": { "es": "Carnes", "en": "Meat", "ca": "Carns" },
-      "sub":   { "es": "a la plancha o al horno", "en": "grilled or oven-baked", "ca": "a la planxa o al forn" },
+      "label": {
+        "es": "Carnes",
+        "en": "Meat",
+        "ca": "Carns"
+      },
+      "sub": {
+        "es": "a la plancha o al horno",
+        "en": "grilled or oven-baked",
+        "ca": "a la planxa o al forn"
+      },
       "items": [
         {
           "name": "Entrecot de Ternera",
-          "tag":  null,
+          "tag": null,
           "desc": {
             "es": "Entrecot de 280g a la plancha, guarnición de patatas y ensalada",
             "en": "280g grilled entrecôte, potato garnish and salad",
@@ -178,7 +231,7 @@ window.MENU_DATA = {
         },
         {
           "name": "Escalope de Pollo",
-          "tag":  null,
+          "tag": null,
           "desc": {
             "es": "Pechuga empanada a la milanesa, limón, ensalada mixta y patatas fritas",
             "en": "Breaded chicken breast alla milanese, lemon, mixed salad and chips",
@@ -188,7 +241,7 @@ window.MENU_DATA = {
         },
         {
           "name": "Pollo a la Plancha",
-          "tag":  null,
+          "tag": null,
           "desc": {
             "es": "Pechuga de pollo a la plancha con hierbas mallorquinas, patatas y pimientos",
             "en": "Grilled chicken breast with Mallorcan herbs, potatoes and peppers",
@@ -198,7 +251,7 @@ window.MENU_DATA = {
         },
         {
           "name": "Costillas BBQ",
-          "tag":  null,
+          "tag": null,
           "desc": {
             "es": "Costillar de cerdo glaseado con salsa BBQ de la casa, patatas y coleslaw",
             "en": "Pork ribs glazed with house BBQ sauce, potatoes and coleslaw",
@@ -211,12 +264,20 @@ window.MENU_DATA = {
     {
       "id": "entrantes",
       "icon": "shield",
-      "label": { "es": "Entrantes", "en": "Starters", "ca": "Entrants" },
-      "sub":   { "es": "para compartir", "en": "to share", "ca": "per compartir" },
+      "label": {
+        "es": "Entrantes",
+        "en": "Starters",
+        "ca": "Entrants"
+      },
+      "sub": {
+        "es": "para compartir",
+        "en": "to share",
+        "ca": "per compartir"
+      },
       "items": [
         {
           "name": "Nachos con Queso",
-          "tag":  null,
+          "tag": null,
           "desc": {
             "es": "Nachos crujientes, queso fundido, guacamole, pico de gallo y crema agria",
             "en": "Crispy nachos, melted cheese, guacamole, pico de gallo and sour cream",
@@ -226,7 +287,11 @@ window.MENU_DATA = {
         },
         {
           "name": "Ensalada Mixta",
-          "tag":  { "es": "Vegana", "en": "Vegan", "ca": "Vegana" },
+          "tag": {
+            "es": "Vegana",
+            "en": "Vegan",
+            "ca": "Vegana"
+          },
           "desc": {
             "es": "Lechuga, tomate, pepino, cebolla, aceitunas, zanahoria, vinagreta de la casa",
             "en": "Lettuce, tomato, cucumber, onion, olives, carrot, house vinaigrette",
@@ -236,7 +301,11 @@ window.MENU_DATA = {
         },
         {
           "name": "Pan de Ajo",
-          "tag":  { "es": "Vegetariana", "en": "Vegetarian", "ca": "Vegetariana" },
+          "tag": {
+            "es": "Vegetariana",
+            "en": "Vegetarian",
+            "ca": "Vegetariana"
+          },
           "desc": {
             "es": "Pan artesano con mantequilla de ajo y hierbas, horneado en nuestro horno de leña",
             "en": "Artisan bread with garlic butter and herbs, baked in our wood-fired oven",
@@ -245,8 +314,8 @@ window.MENU_DATA = {
           "price": "4,00€"
         },
         {
-          "name": "Burrata & Sobrasada",
-          "tag":  null,
+          "name": "Burrata \u0026 Sobrasada",
+          "tag": null,
           "desc": {
             "es": "Burrata fresca, sobrasada mallorquina templada, miel artesana y tostadas",
             "en": "Fresh burrata, warm Mallorcan sobrasada, artisan honey and toast",
@@ -256,7 +325,11 @@ window.MENU_DATA = {
         },
         {
           "name": "Bruschetta al Horno",
-          "tag":  { "es": "Vegana", "en": "Vegan", "ca": "Vegana" },
+          "tag": {
+            "es": "Vegana",
+            "en": "Vegan",
+            "ca": "Vegana"
+          },
           "desc": {
             "es": "Pan de masa madre, tomate cherry asado, albahaca fresca, ajo y AOVE",
             "en": "Sourdough, roasted cherry tomatoes, fresh basil, garlic and EVOO",
@@ -269,12 +342,24 @@ window.MENU_DATA = {
     {
       "id": "vegetales",
       "icon": "leaf",
-      "label": { "es": "Vegetales", "en": "Vegetarian", "ca": "Vegetals" },
-      "sub":   { "es": "opciones veganas disponibles", "en": "vegan options available", "ca": "opcions veganes disponibles" },
+      "label": {
+        "es": "Vegetales",
+        "en": "Vegetarian",
+        "ca": "Vegetals"
+      },
+      "sub": {
+        "es": "opciones veganas disponibles",
+        "en": "vegan options available",
+        "ca": "opcions veganes disponibles"
+      },
       "items": [
         {
           "name": "Verduras a la Plancha",
-          "tag":  { "es": "Vegana", "en": "Vegan", "ca": "Vegana" },
+          "tag": {
+            "es": "Vegana",
+            "en": "Vegan",
+            "ca": "Vegana"
+          },
           "desc": {
             "es": "Selección de verduras de temporada a la plancha con romero, tomillo y AOVE",
             "en": "Selection of seasonal grilled vegetables with rosemary, thyme and EVOO",
@@ -284,7 +369,11 @@ window.MENU_DATA = {
         },
         {
           "name": "Ensalada Caprese",
-          "tag":  { "es": "Vegetariana", "en": "Vegetarian", "ca": "Vegetariana" },
+          "tag": {
+            "es": "Vegetariana",
+            "en": "Vegetarian",
+            "ca": "Vegetariana"
+          },
           "desc": {
             "es": "Tomate de temporada, mozzarella fresca, albahaca, AOVE y reducción de balsámico",
             "en": "Seasonal tomato, fresh mozzarella, basil, EVOO and balsamic reduction",
@@ -294,7 +383,11 @@ window.MENU_DATA = {
         },
         {
           "name": "Pizza Vegana",
-          "tag":  { "es": "Vegana", "en": "Vegan", "ca": "Vegana" },
+          "tag": {
+            "es": "Vegana",
+            "en": "Vegan",
+            "ca": "Vegana"
+          },
           "desc": {
             "es": "Tomate natural, berenjena, calabacín, pimientos, aceitunas, rúcula, sin lácteos",
             "en": "Natural tomato, aubergine, courgette, peppers, olives, rocket, dairy-free",
@@ -307,12 +400,20 @@ window.MENU_DATA = {
     {
       "id": "postres",
       "icon": "heart",
-      "label": { "es": "Postres", "en": "Desserts", "ca": "Postres" },
-      "sub":   { "es": "el final perfecto", "en": "the perfect ending", "ca": "el final perfecte" },
+      "label": {
+        "es": "Postres",
+        "en": "Desserts",
+        "ca": "Postres"
+      },
+      "sub": {
+        "es": "el final perfecto",
+        "en": "the perfect ending",
+        "ca": "el final perfecte"
+      },
       "items": [
         {
           "name": "Tiramisú Casero",
-          "tag":  null,
+          "tag": null,
           "desc": {
             "es": "Receta casera con mascarpone artesano, bizcochos Savoiardi y café italiano",
             "en": "Home recipe with artisan mascarpone, Savoiardi biscuits and Italian coffee",
@@ -322,7 +423,7 @@ window.MENU_DATA = {
         },
         {
           "name": "Panna Cotta de Limón",
-          "tag":  null,
+          "tag": null,
           "desc": {
             "es": "Panna cotta con limón de Sóller, coulis de frutos rojos y menta fresca",
             "en": "Panna cotta with Sóller lemon, red fruit coulis and fresh mint",
@@ -332,7 +433,7 @@ window.MENU_DATA = {
         },
         {
           "name": "Tarta de Queso",
-          "tag":  null,
+          "tag": null,
           "desc": {
             "es": "Tarta de queso al estilo San Sebastián, cremosa y ligeramente quemada por fuera",
             "en": "San Sebastián-style cheesecake, creamy and lightly burnt on the outside",
@@ -342,7 +443,7 @@ window.MENU_DATA = {
         },
         {
           "name": "Helado Artesano",
-          "tag":  null,
+          "tag": null,
           "desc": {
             "es": "3 bolas de helado artesano de producción local. Consulte sabores disponibles",
             "en": "3 scoops of artisan ice cream, locally produced. Ask for available flavours",
