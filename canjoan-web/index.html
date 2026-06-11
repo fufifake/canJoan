@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Can Joan — Pizzería Artesanal · Llucmajor, Mallorca</title>
+  <meta name="description" content="Pizzería familiar artesanal en Llucmajor, Mallorca desde 1989. Horno de leña, ingredientes locales, tradición familiar.">
+  <meta name="theme-color" content="#000000">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ══ PAGE-LEVEL OVERRIDES ══ */
+    :root {
+      --bg:  #000000;
+      --bg2: #0A0500;
+      --bg3: #160A00;
+      --nav-h: 88px;
+    }
+
+    /* ══ NAV OVERRIDE ══ */
+    #nav {
+      background: #000000;
+      box-shadow: 0 1px 0 rgba(232,100,10,.18);
+      height: var(--nav-h);
+    }
+    #nav.solid { background: #000000; backdrop-filter: none; -webkit-backdrop-filter: none; }
+    .nav-phone {
+      background: transparent !important;
+      border: 1.5px solid var(--or);
+      padding: 9px 18px;
+    }
+    .nav-phone:hover { background: var(--or) !important; }
+    .logo-img { height: 80px; background-color: #000000; }
+
+    /* ══ HERO — FULL BLEED ══ */
+    /* Altura calculada sobre la proporción real de la imagen (1844×758, ratio 2.43:1)
+       para evitar upscaling. min() elige el valor menor entre 72vh y el alto natural. */
+    #hero {
+      position: relative;
+      min-height: min(72vh, calc(100vw / 2.43));
+      display: flex; align-items: center;
+      overflow: hidden;
+      background: #000;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0; overflow: hidden;
+    }
+    /* scale(1.06): mínimo margen para el parallax sin degradar calidad */
+    .hero-bg img {
+      position: absolute;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: none;
+      transform-origin: center center;
+    }
+    /* Gradiente: oscuro izquierda (texto legible) → imagen nítida derecha (badge visible) */
+    .hero-ov {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        linear-gradient(to right,
+          rgba(0,0,0,.97) 0%,
+          rgba(0,0,0,.94) 22%,
+          rgba(0,0,0,.78) 42%,
+          rgba(0,0,0,.32) 62%,
+          rgba(0,0,0,.06) 80%,
+          rgba(0,0,0,0)   100%),
+        linear-gradient(to top,
+          rgba(0,0,0,.30) 0%,
+          rgba(0,0,0,.06) 12%,
+          transparent     24%);
+    }
+    /* Contenedor del texto — centrado verticalmente */
+    .hero-wrap {
+      position: relative; z-index: 2;
+      width: 100%; max-width: var(--mw);
+      margin: 0 auto;
+      padding: calc(var(--nav-h) + 4rem) clamp(2rem,5vw,4.5rem) 5rem;
+    }
+    /* Texto limitado a la mitad izquierda */
+    .hero-text { max-width: 520px; }
+    .hero-desde {
+      display: block;
+      font-size: .68rem; font-weight: 700; letter-spacing: .42em; text-transform: uppercase;
+      color: var(--or); margin-bottom: 1.3rem;
+    }
+    .hero-h1 {
+      font-family: var(--ff-h);
+      font-size: clamp(2.8rem,5.8vw,4.8rem);
+      font-weight: 700; line-height: 1.08;
+      color: var(--cr); margin-bottom: .1rem;
+      letter-spacing: -.01em;
+    }
+    .hero-h1 em { font-style: italic; color: var(--or); display: block; }
+    .hero-underline {
+      width: 56px; height: 3px; background: var(--or);
+      margin: 1.1rem 0 1.7rem;
+    }
+    .hero-sub {
+      font-size: clamp(.88rem,1.5vw,.98rem); font-weight: 300;
+      color: var(--cr2); line-height: 1.82;
+      max-width: 400px; margin-bottom: 2.6rem;
+    }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: .9rem; }
+    .btn-hero-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1.5px solid var(--or); color: var(--or);
+      padding: 12px 28px; font-size: .7rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase; border-radius: 1px;
+      transition: background .2s, color .2s, transform .15s;
+    }
+    .btn-hero-outline:hover { background: var(--or); color: var(--wh); transform: translateY(-2px); }
+    .btn-hero-solid {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--or); color: var(--wh);
+      padding: 12px 28px; font-size: .7rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase; border-radius: 1px;
+      border: 1.5px solid var(--or);
+      transition: background .2s, transform .15s;
+    }
+    .btn-hero-solid:hover { background: var(--or2); transform: translateY(-2px); }
+
+    /* ══ FEATURES STRIP ══ */
+    #features {
+      background: #000;
+      border-top: 1px solid rgba(232,100,10,.22);
+      border-bottom: 1px solid rgba(232,100,10,.12);
+    }
+    .feat-grid {
+      max-width: var(--mw); margin: 0 auto;
+      padding: 0 clamp(1rem,3vw,2rem);
+      display: grid; grid-template-columns: repeat(4,1fr);
+    }
+    @media (max-width: 640px) { .feat-grid { grid-template-columns: repeat(2,1fr); } }
+    .feat {
+      padding: 2rem 1.25rem;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: .7rem;
+      border-right: 1px solid rgba(232,100,10,.15);
+      transition: background .2s;
+    }
+    .feat:last-child { border-right: none; }
+    @media (max-width: 640px) {
+      .feat:nth-child(2) { border-right: none; }
+      .feat:nth-child(3) { border-right: 1px solid rgba(232,100,10,.15); }
+    }
+    .feat:hover { background: rgba(232,100,10,.04); }
+    .feat-icon {
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--or);
+    }
+    .feat-icon svg { width: 30px; height: 30px; stroke-width: 1.4; }
+    .feat-name {
+      font-size: .68rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--cr);
+    }
+    .feat-desc { font-size: .78rem; color: var(--cr3); line-height: 1.55; }
+
+    /* ══ MOSAIC — 5 COLUMNS ══ */
+    #mosaic { overflow: hidden; }
+    .mosaic-grid {
+      display: grid;
+      grid-template-columns: repeat(5,1fr);
+      height: 400px;
+    }
+    @media (max-width: 900px) {
+      .mosaic-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 240px auto 240px;
+        height: auto;
+      }
+      .ms-text { grid-column: 1 / -1; height: auto; padding: 3rem 2rem; }
+    }
+    @media (max-width: 480px) {
+      .mosaic-grid { grid-template-columns: 1fr; grid-template-rows: unset; }
+      .ms-img { height: 220px; }
+      .ms-text { padding: 2.5rem 1.5rem; }
+    }
+    .ms-img { overflow: hidden; position: relative; }
+    .ms-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(.72) saturate(1.1);
+      transition: filter .5s var(--ease), transform .5s var(--ease);
+      display: block;
+    }
+    .ms-img:hover img { filter: brightness(.88) saturate(1.15); transform: scale(1.04); }
+    .ms-text {
+      background: var(--bg3);
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; padding: 2rem 1.75rem; gap: .85rem;
+      position: relative;
+    }
+    .ms-text::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 50% 110%, rgba(232,100,10,.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .ms-text .lbl { margin-bottom: 0; }
+    .ms-h2 {
+      font-family: var(--ff-h); font-size: clamp(1.35rem,2.2vw,1.7rem);
+      font-weight: 700; color: var(--cr); line-height: 1.25;
+    }
+    .ms-p {
+      font-size: .8rem; font-weight: 300; color: var(--cr2);
+      line-height: 1.72; max-width: 240px;
+    }
+    .btn-ms {
+      display: inline-flex; align-items: center; gap: 7px;
+      border: 1.5px solid var(--or); color: var(--or);
+      padding: 9px 20px; font-size: .64rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase; border-radius: 1px;
+      transition: background .2s, color .2s;
+    }
+    .btn-ms:hover { background: var(--or); color: var(--wh); }
+
+    /* ══ INFO BAR ══ */
+    #infobar {
+      background: #000;
+      border-top: 1px solid rgba(232,100,10,.18);
+    }
+    .ib-wrap {
+      max-width: var(--mw); margin: 0 auto;
+      padding: 0 clamp(1.5rem,4vw,3rem);
+      display: flex; align-items: stretch;
+      min-height: 90px;
+    }
+    .ib-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 1.6rem 2.5rem 1.6rem 0;
+      flex: 1;
+    }
+    .ib-item:first-child { padding-left: 0; }
+    .ib-sep {
+      width: 1px; background: rgba(232,100,10,.3);
+      margin: 1.25rem 2.5rem 1.25rem 0;
+      flex-shrink: 0; align-self: stretch;
+    }
+    .ib-icon { color: var(--or); flex-shrink: 0; }
+    .ib-icon svg { display: block; }
+    .ib-main {
+      font-size: .96rem; font-weight: 700; color: var(--cr);
+      line-height: 1.2; display: block;
+    }
+    .ib-sub {
+      font-size: .76rem; color: var(--cr3);
+      line-height: 1.5; display: block; margin-top: 2px;
+    }
+    .ib-soc {
+      display: flex; align-items: center; gap: .75rem;
+      padding: 1.6rem 0;
+      flex-shrink: 0;
+    }
+    .ib-soc a {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(232,100,10,.1); border: 1px solid rgba(232,100,10,.25);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--or); transition: all .15s;
+    }
+    .ib-soc a:hover { background: var(--or); border-color: var(--or); color: var(--wh); }
+    @media (max-width: 768px) {
+      .ib-wrap { flex-direction: column; align-items: flex-start; }
+      .ib-item { padding: 1rem 0; flex: unset; width: 100%; }
+      .ib-sep { width: 100%; height: 1px; margin: 0; align-self: unset; background: rgba(232,100,10,.15); }
+      .ib-soc { padding: 1rem 0; }
+    }
+
+    /* ══ FOOTER ══ */
+    #foot {
+      background: var(--bg2);
+      border-top: 1px solid rgba(240,235,224,.04);
+      padding: 3.5rem clamp(1.5rem,4vw,3rem) 1.75rem;
+    }
+    .foot-g {
+      max-width: var(--mw); margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3.5rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: 640px) { .foot-g { grid-template-columns: 1fr; gap: 2rem; } }
+    .fbot {
+      max-width: var(--mw); margin: 0 auto;
+      border-top: 1px solid rgba(240,235,224,.06); padding-top: 1.25rem;
+      display: flex; flex-direction: column; align-items: center; gap: .5rem; text-align: center;
+    }
+    @media (min-width: 640px) { .fbot { flex-direction: row; justify-content: space-between; } }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav id="nav" role="navigation" aria-label="Navegación principal">
+  <a href="index.html" class="logo" aria-label="Can Joan — Inicio">
+    <img src="Imagenes_CanJoan/LogoCanJoan.png" alt="Pizzeria Can Joan" class="logo-img">
+  </a>
+
+  <ul class="nav-links" role="list">
+    <li><a href="index.html" class="act" data-es="Inicio" data-en="Home">Inicio</a></li>
+    <li><a href="#tradicion" data-es="La Pizzería" data-en="The Pizzeria">La Pizzería</a></li>
+    <li><a href="carta.html" data-es="Carta" data-en="Menu">Carta</a></li>
+    <li><a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a></li>
+    <li><a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a></li>
+  </ul>
+
+  <div class="nav-r">
+    <a href="tel:971120228" class="nav-phone" aria-label="Llámanos">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.56 3.41 2 2 0 0 1 3.53 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      971 12 02 28
+    </a>
+    <div class="lt" role="group" aria-label="Idioma">
+      <button id="btn-es" class="a" onclick="setLang('es')" aria-pressed="true">ES</button>
+      <button id="btn-en" onclick="setLang('en')" aria-pressed="false">EN</button>
+    </div>
+    <button class="hb" id="hbtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mob">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile overlay -->
+<div class="mob" id="mob" role="dialog" aria-modal="true" aria-label="Menú móvil">
+  <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
+  <a href="#tradicion" data-es="La Pizzería" data-en="The Pizzeria">La Pizzería</a>
+  <a href="carta.html" data-es="Carta" data-en="Menu">Carta</a>
+  <a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a>
+  <div class="mob-lt">
+    <button id="mob-btn-es" class="a" onclick="setLang('es')">ES</button>
+    <button id="mob-btn-en" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="hero" role="banner">
+
+  <!-- Imagen de fondo con parallax -->
+  <div class="hero-bg">
+    <img src="Imagenes_CanJoan/background_hd.png"
+         alt="Terraza de la Pizzería Can Joan en Llucmajor por la noche con luces cálidas y pizza artesanal"
+         fetchpriority="high" draggable="false">
+  </div>
+
+  <!-- Gradiente de integración (oscuro izq → imagen dcha + suelo oscuro) -->
+  <div class="hero-ov" aria-hidden="true"></div>
+
+  <!-- Contenido -->
+  <div class="hero-wrap">
+    <div class="hero-text">
+      <span class="hero-desde fi"
+            data-es="DESDE 1989" data-en="SINCE 1989">DESDE 1989</span>
+      <h1 class="hero-h1 fi d1">
+        <span data-es="El sabor" data-en="The taste">El sabor</span><br>
+        <span data-es="de siempre" data-en="that endures">de siempre</span><br>
+        <em data-es="en Llucmajor" data-en="in Llucmajor">en Llucmajor</em>
+      </h1>
+      <div class="hero-underline fi d2"></div>
+      <p class="hero-sub fi d2"
+         data-es="Pizzería familiar con más de 20 años de experiencia ofreciendo productos de primera calidad a un precio realmente asequible."
+         data-en="Family pizzeria with over 20 years of experience offering top-quality products at a truly affordable price.">
+        Pizzería familiar con más de 20 años de experiencia ofreciendo productos de primera calidad a un precio realmente asequible.
+      </p>
+      <div class="hero-btns fi d3">
+        <a href="carta.html" class="btn-hero-outline">
+          <span data-es="Ver Carta" data-en="View Menu">Ver Carta</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="contacto.html" class="btn-hero-solid">
+          <span data-es="Reservar Mesa" data-en="Book a Table">Reservar Mesa</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════ FEATURES ═══════════ -->
+<section id="features" aria-label="Características">
+  <div class="feat-grid">
+    <div class="feat fi">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+      </div>
+      <span class="feat-name" data-es="Pizzas Artesanales" data-en="Artisan Pizzas">Pizzas Artesanales</span>
+      <p class="feat-desc" data-es="Masa casera e ingredientes de primera calidad." data-en="Homemade dough and top quality ingredients.">Masa casera e ingredientes de primera calidad.</p>
+    </div>
+    <div class="feat fi d1">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <span class="feat-name" data-es="Terraza Exterior" data-en="Outdoor Terrace">Terraza Exterior</span>
+      <p class="feat-desc" data-es="Disfruta de nuestras noches en un ambiente único." data-en="Enjoy our evenings in a unique atmosphere.">Disfruta de nuestras noches en un ambiente único.</p>
+    </div>
+    <div class="feat fi d2">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <span class="feat-name" data-es="Para Familias" data-en="For Families">Para Familias</span>
+      <p class="feat-desc" data-es="Espacios amplios y ambiente acogedor para todos." data-en="Spacious areas and a welcoming atmosphere for everyone.">Espacios amplios y ambiente acogedor para todos.</p>
+    </div>
+    <div class="feat fi d3">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <span class="feat-name" data-es="Para Llevar" data-en="Takeaway">Para Llevar</span>
+      <p class="feat-desc" data-es="Pide y recoge tu pedido en el local." data-en="Order and collect from the restaurant.">Pide y recoge tu pedido en el local.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ MOSAICO ═══════════ -->
+<section id="tradicion" aria-label="Nuestra historia">
+  <div class="mosaic-grid" id="galeria">
+    <!-- col 1 -->
+    <div class="ms-img fi">
+      <img src="Imagenes_CanJoan/Designer.png"
+           alt="Pizza artesanal de Can Joan" loading="lazy">
+    </div>
+    <!-- col 2 -->
+    <div class="ms-img fi d1">
+      <img src="Imagenes_CanJoan/Pasillo.png"
+           alt="Salón interior de la Pizzería Can Joan" loading="lazy">
+    </div>
+    <!-- col 3: texto -->
+    <div class="ms-text fi d2">
+      <span class="lbl" data-es="Nuestra Historia" data-en="Our Story">Nuestra Historia</span>
+      <h2 class="ms-h2"
+          data-es="Tradición familiar<br>desde 1989"
+          data-en="Family tradition<br>since 1989">
+        Tradición familiar<br>desde 1989
+      </h2>
+      <p class="ms-p"
+         data-es="Ca'n Joan nació como un pequeño sueño familiar y hoy seguimos cocinando con la misma pasión de siempre, ofreciendo calidad, buen ambiente y el mejor servicio."
+         data-en="Ca'n Joan was born as a small family dream and today we keep cooking with the same passion as always, offering quality, great atmosphere and the best service.">
+        Ca'n Joan nació como un pequeño sueño familiar y hoy seguimos cocinando con la misma pasión de siempre, ofreciendo calidad, buen ambiente y el mejor servicio.
+      </p>
+      <a href="contacto.html" class="btn-ms">
+        <span data-es="Conócenos" data-en="Meet us">Conócenos</span>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <!-- col 4 -->
+    <div class="ms-img fi d3">
+      <img src="Imagenes_CanJoan/Portal.png"
+           alt="Exterior de la Pizzería Can Joan, Llucmajor" loading="lazy">
+    </div>
+    <!-- col 5 -->
+    <div class="ms-img fi d4">
+      <img src="Imagenes_CanJoan/masa.png"
+           alt="Elaboración artesanal de la masa en Can Joan" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ INFO BAR ═══════════ -->
+<section id="infobar" aria-label="Información de contacto">
+  <div class="ib-wrap">
+
+    <div class="ib-item fi">
+      <div class="ib-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.56 3.41 2 2 0 0 1 3.53 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <div>
+        <a href="tel:971120228" class="ib-main">971 12 02 28</a>
+        <span class="ib-sub" data-es="Haz tu reserva" data-en="Make a reservation">Haz tu reserva</span>
+      </div>
+    </div>
+
+    <div class="ib-sep" aria-hidden="true"></div>
+
+    <div class="ib-item fi d1">
+      <div class="ib-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div>
+        <span class="ib-main">C/ de Gràcia, 62</span>
+        <span class="ib-sub">07620 Llucmajor, Mallorca</span>
+      </div>
+    </div>
+
+    <div class="ib-sep" aria-hidden="true"></div>
+
+    <div class="ib-item fi d2">
+      <div class="ib-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div>
+        <span class="ib-main" data-es="Lunes, Miércoles a Domingo" data-en="Mon, Wed to Sun">Lunes, Miércoles a Domingo</span>
+        <span class="ib-sub" data-es="19:00 – 23:30 · Martes cerrado" data-en="7:00pm – 11:30pm · Tuesday closed">19:00 – 23:30 · Martes cerrado</span>
+      </div>
+    </div>
+
+    <div class="ib-sep" aria-hidden="true"></div>
+
+    <div class="ib-soc fi d3">
+      <a href="#" aria-label="Facebook">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="#" aria-label="Instagram">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer id="foot" role="contentinfo">
+  <div class="foot-g">
+    <div class="fi">
+      <span class="foot-logo">Can Joan</span>
+      <span class="foot-sub" data-es="Pizzería Artesanal · Llucmajor" data-en="Artisan Pizzeria · Llucmajor">Pizzería Artesanal · Llucmajor</span>
+      <p class="foot-p"
+         data-es="Más de dos décadas cocinando con fuego, pasión y los mejores ingredientes de la isla."
+         data-en="Over two decades cooking with fire, passion, and the finest ingredients on the island.">
+        Más de dos décadas cocinando con fuego, pasión y los mejores ingredientes de la isla.
+      </p>
+    </div>
+    <div class="fi d1">
+      <span class="fcol-t" data-es="Encuéntranos" data-en="Find Us">Encuéntranos</span>
+      <div class="finfo">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>C/ de Gràcia, 62<br>07620 Llucmajor, Mallorca</span>
+      </div>
+      <div class="finfo">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.56 3.41 2 2 0 0 1 3.53 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:971120228">971 12 02 28</a>
+      </div>
+    </div>
+    <div class="fi d2">
+      <span class="fcol-t" data-es="Horario" data-en="Hours">Horario</span>
+      <div class="fhr hl"><span class="day" data-es="Lun / Mié a Dom" data-en="Mon / Wed to Sun">Lun / Mié a Dom</span><span>19:00–23:30</span></div>
+      <div class="fhr"><span class="day" data-es="Martes" data-en="Tuesday">Martes</span><span data-es="Cerrado" data-en="Closed">Cerrado</span></div>
+    </div>
+  </div>
+  <div class="fbot">
+    <p class="fcopy">&copy; 2026 Can Joan Pizzería. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
+    <p class="fmade"><span data-es="Hecho con " data-en="Made with ">Hecho con </span><span>♥</span><span data-es=" en Mallorca" data-en=" in Mallorca"> en Mallorca</span></p>
+  </div>
+</footer>
+
+<script>
+  /* ── LANG ── */
+  let lang = localStorage.getItem('cj-lang') || 'es';
+  function setLang(l) {
+    lang = l; localStorage.setItem('cj-lang', l);
+    document.documentElement.lang = l;
+    ['btn-es','btn-en','mob-btn-es','mob-btn-en'].forEach(id => {
+      const el = document.getElementById(id); if (!el) return;
+      const isActive = (id.includes('es') && l==='es') || (id.includes('en') && l==='en');
+      el.classList.toggle('a', isActive); el.setAttribute('aria-pressed', isActive);
+    });
+    document.querySelectorAll('[data-es][data-en]').forEach(el => {
+      const v = el.getAttribute('data-'+l);
+      if (v !== null && el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA') el.innerHTML = v;
+    });
+    document.title = l === 'en'
+      ? 'Can Joan — Artisan Pizzeria · Llucmajor, Mallorca'
+      : 'Can Joan — Pizzería Artesanal · Llucmajor, Mallorca';
+  }
+  setLang(lang);
+
+  /* ── MOBILE MENU ── */
+  const hbtn = document.getElementById('hbtn');
+  const mob  = document.getElementById('mob');
+  hbtn.addEventListener('click', () => {
+    const o = mob.classList.toggle('o');
+    hbtn.classList.toggle('o', o);
+    hbtn.setAttribute('aria-expanded', o);
+    document.body.style.overflow = o ? 'hidden' : '';
+  });
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mob.classList.remove('o'); hbtn.classList.remove('o');
+    hbtn.setAttribute('aria-expanded','false'); document.body.style.overflow = '';
+  }));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { mob.classList.remove('o'); hbtn.classList.remove('o'); hbtn.setAttribute('aria-expanded','false'); document.body.style.overflow = ''; }
+  });
+
+  /* ── FADE-IN ── */
+  const rmo = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!rmo.matches) {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }});
+    }, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
+    document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+  } else {
+    document.querySelectorAll('.fi').forEach(el => el.classList.add('on'));
+  }
+
+  /* ── PARALLAX HERO ── */
+  const heroBgImg = document.querySelector('.hero-bg img');
+  if (heroBgImg && !rmo.matches) {
+    function onScroll() {
+      if (window.scrollY < window.innerHeight * 1.2) {
+        const offset = window.scrollY * 0.18;
+        heroBgImg.style.transform = 'translateY(' + offset + 'px)';
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* ── SMOOTH SCROLL ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) {
+        e.preventDefault();
+        const nav = document.getElementById('nav');
+        window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - nav.offsetHeight, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
