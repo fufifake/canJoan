@@ -1,7 +1,6 @@
 /* Can Joan — Carta del restaurante.
-   Edita este archivo o usa el CMS para añadir, eliminar o modificar platos.
-   Cada categoría: id, icon, label(es/en/ca), sub(es/en/ca), items[].
-   Cada plato: name, tag(null o {es/en/ca}), desc{es/en/ca}, price. */
+   Edita este archivo o usa el CMS para cambiar, añadir o eliminar platos.
+   Estructura: categories -> items. Cada item tiene name, tag, desc y price. */
 
 window.MENU_DATA = {
   "categories": [
@@ -31,7 +30,7 @@ window.MENU_DATA = {
             "en": "Natural tomato, fior di latte mozzarella, fresh basil, EVOO",
             "ca": "Tomàtiga natural, mozzarella fior di latte, alfàbega fresca, AOVE"
           },
-          "price": "12€"
+          "price": "10€"
         },
         {
           "name": "Mamasita",
